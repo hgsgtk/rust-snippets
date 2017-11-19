@@ -1,9 +1,8 @@
 use std::io::*;
 use std::str::*;
 
-fn read<T: FromStr>() -> Option<T> {
-    let stdin = stdin();
-    let s = stdin
+fn read<T: FromStr>(s: &mut StdinLock) -> Option<T> {
+    let s = s.by_ref()
         .bytes()
         .map(|c| c.unwrap() as char)
         .skip_while(|c| c.is_whitespace())
@@ -13,9 +12,12 @@ fn read<T: FromStr>() -> Option<T> {
 }
 
 fn main() {
+    let s = stdin();
+    let mut s = s.lock();
+    let s = &mut s;
     let mut acc: u32 = 0;
-    while let Some(n) = read() {
+    while let Some(n) = read(s) {
         acc += n;
     }
-    assert_eq!(acc, 30000000);
+    assert_eq!(30_000_000, acc);
 }
