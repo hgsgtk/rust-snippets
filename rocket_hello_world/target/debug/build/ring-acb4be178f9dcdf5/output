@@ -1,0 +1,763 @@
+TERM_PROGRAM: iTerm.app
+PYENV_ROOT: /Users/kazukihigashiguchi/.pyenv
+TERM: xterm-256color
+SHELL: /bin/bash
+TMPDIR: /var/folders/07/v2j4hn5s1vz301j35pfw1vkm0000gp/T/
+Apple_PubSub_Socket_Render: /private/tmp/com.apple.launchd.Ncz97H6Rpq/Render
+TERM_PROGRAM_VERSION: 3.1.5
+OLDPWD: /Users/kazukihigashiguchi/tmp/rust/snippets
+TERM_SESSION_ID: w0t0p2:B8D890C7-B79E-48C9-BF92-75FABC65B61E
+USER: kazukihigashiguchi
+SSH_AUTH_SOCK: /private/tmp/com.apple.launchd.aViGaIm6z4/Listeners
+__CF_USER_TEXT_ENCODING: 0x1F6:0x0:0x0
+PATH: /Users/kazukihigashiguchi/.cargo/bin:/usr/local/opt/libxml2/bin:/usr/local/opt/bison/bin:/Users/kazukihigashiguchi/.phpenv/shims:/Users/kazukihigashiguchi/.phpenv/bin:/Users/kazukihigashiguchi/.pyenv/shims:/Users/kazukihigashiguchi/.pyenv/bin:/Users/kazukihigashiguchi/.cargo/bin:/Users/kazukihigashiguchi/.composer/vendor/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+PWD: /Users/kazukihigashiguchi/tmp/rust/snippets/rocket_hello_world
+ITERM_PROFILE: kh0324
+XPC_FLAGS: 0x0
+ITERM_ORIG_PS1: \h:\W \u\$ 
+PS1: \h:\W \u\$ 
+RBENV_SHELL: bash
+XPC_SERVICE_NAME: 0
+PYENV_SHELL: bash
+SHLVL: 1
+HOME: /Users/kazukihigashiguchi
+COLORFGBG: 7;0
+ITERM_PREV_PS1: \[]133;D;$?]133;A\]\h:\W \u\$ \[]133;B\]
+ITERM_SESSION_ID: w0t0p2:B8D890C7-B79E-48C9-BF92-75FABC65B61E
+LOGNAME: kazukihigashiguchi
+LC_CTYPE: UTF-8
+COLORTERM: truecolor
+_: /Users/kazukihigashiguchi/.cargo/bin/cargo
+DYLD_LIBRARY_PATH: /Users/kazukihigashiguchi/tmp/rust/snippets/rocket_hello_world/target/debug/deps:/Users/kazukihigashiguchi/.rustup/toolchains/nightly-x86_64-apple-darwin/lib
+CARGO_HOME: /Users/kazukihigashiguchi/.cargo
+RUST_RECURSION_COUNT: 1
+RUSTUP_TOOLCHAIN: nightly-x86_64-apple-darwin
+RUSTUP_HOME: /Users/kazukihigashiguchi/.rustup
+CARGO_CFG_TARGET_HAS_ATOMIC: 128,16,32,64,8,ptr
+CARGO_PKG_VERSION_PRE: 
+CARGO_CFG_UNIX: 
+CARGO_CFG_TARGET_ARCH: x86_64
+CARGO_PKG_DESCRIPTION: Safe, fast, small crypto using Rust.
+CARGO_CFG_TARGET_OS: macos
+CARGO_PKG_VERSION_PATCH: 0
+CARGO_CFG_DEBUG_ASSERTIONS: 
+CARGO_PKG_NAME: ring
+CARGO_CFG_TARGET_ENDIAN: little
+TARGET: x86_64-apple-darwin
+OPT_LEVEL: 0
+CARGO_PKG_AUTHORS: Brian Smith <brian@briansmith.org>
+CARGO_PKG_VERSION_MINOR: 11
+CARGO_PKG_VERSION: 0.11.0
+CARGO_FEATURE_USE_HEAP: 1
+CARGO_PKG_HOMEPAGE: 
+CARGO_CFG_TARGET_THREAD_LOCAL: 
+CARGO_MANIFEST_LINKS: ring-asm
+CARGO_CFG_TARGET_VENDOR: apple
+HOST: x86_64-apple-darwin
+CARGO_CFG_TARGET_POINTER_WIDTH: 64
+NUM_JOBS: 4
+DEBUG: true
+CARGO_MANIFEST_DIR: /Users/kazukihigashiguchi/.cargo/registry/src/github.com-1ecc6299db9ec823/ring-0.11.0
+CARGO_FEATURE_DEV_URANDOM_FALLBACK: 1
+OUT_DIR: /Users/kazukihigashiguchi/tmp/rust/snippets/rocket_hello_world/target/debug/build/ring-acb4be178f9dcdf5/out
+RUSTDOC: rustdoc
+PROFILE: debug
+CARGO_CFG_TARGET_FAMILY: unix
+CARGO_CFG_TARGET_FEATURE: sse,sse2,sse3,ssse3
+CARGO_PKG_VERSION_MAJOR: 0
+CARGO_CFG_TARGET_ENV: 
+CARGO_FEATURE_DEFAULT: 1
+RUSTC: rustc
+CARGO: /Users/kazukihigashiguchi/.rustup/toolchains/nightly-x86_64-apple-darwin/bin/cargo
+CARGO_MAKEFLAGS: --jobserver-fds=12,13 -j --jobserver-auth=12,13 -j
+OPT_LEVEL = Some("0")
+OPT_LEVEL = Some("0")
+OPT_LEVEL = Some("0")
+OPT_LEVEL = Some("0")
+TARGET = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+CC_x86_64-apple-darwin = None
+CC_x86_64-apple-darwin = None
+CC_x86_64-apple-darwin = None
+CC_x86_64_apple_darwin = None
+CC_x86_64-apple-darwin = None
+CC_x86_64_apple_darwin = None
+CC_x86_64_apple_darwin = None
+HOST_CC = None
+CC_x86_64_apple_darwin = None
+HOST_CC = None
+HOST_CC = None
+CC = None
+HOST_CC = None
+CC = None
+CC = None
+CC = None
+HOST = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+CFLAGS_x86_64-apple-darwin = None
+CFLAGS_x86_64-apple-darwin = None
+CFLAGS_x86_64-apple-darwin = None
+CFLAGS_x86_64_apple_darwin = None
+CFLAGS_x86_64-apple-darwin = None
+CFLAGS_x86_64_apple_darwin = None
+CFLAGS_x86_64_apple_darwin = None
+HOST_CFLAGS = None
+CFLAGS_x86_64_apple_darwin = None
+HOST_CFLAGS = None
+HOST_CFLAGS = None
+CFLAGS = None
+HOST_CFLAGS = None
+CFLAGS = None
+CFLAGS = None
+CFLAGS = None
+DEBUG = Some("true")
+DEBUG = Some("true")
+DEBUG = Some("true")
+DEBUG = Some("true")
+running "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-m64" "-I" "include" "-fdata-sections" "-ffunction-sections" "-pedantic" "-pedantic-errors" "-Wall" "-Wextra" "-Wcast-align" "-Wcast-qual" "-Wenum-compare" "-Wfloat-equal" "-Wformat=2" "-Winline" "-Winvalid-pch" "-Wmissing-declarations" "-Wmissing-field-initializers" "-Wmissing-include-dirs" "-Wredundant-decls" "-Wshadow" "-Wsign-compare" "-Wundef" "-Wuninitialized" "-Wwrite-strings" "-fno-strict-aliasing" "-fvisibility=hidden" "-Wno-cast-align" "-fstack-protector" "-gfull" "-D_XOPEN_SOURCE=700" "-Wall" "-Wextra" "-c" "-o/Users/kazukihigashiguchi/tmp/rust/snippets/rocket_hello_world/target/debug/build/ring-acb4be178f9dcdf5/out/aes-x86_64-macosx.o" "/Users/kazukihigashiguchi/.cargo/registry/src/github.com-1ecc6299db9ec823/ring-0.11.0/pregenerated/aes-x86_64-macosx.S"
+running "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-m64" "-I" "include" "-fdata-sections" "-ffunction-sections" "-pedantic" "-pedantic-errors" "-Wall" "-Wextra" "-Wcast-align" "-Wcast-qual" "-Wenum-compare" "-Wfloat-equal" "-Wformat=2" "-Winline" "-Winvalid-pch" "-Wmissing-declarations" "-Wmissing-field-initializers" "-Wmissing-include-dirs" "-Wredundant-decls" "-Wshadow" "-Wsign-compare" "-Wundef" "-Wuninitialized" "-Wwrite-strings" "-fno-strict-aliasing" "-fvisibility=hidden" "-Wno-cast-align" "-fstack-protector" "-gfull" "-D_XOPEN_SOURCE=700" "-Wall" "-Wextra" "-c" "-o/Users/kazukihigashiguchi/tmp/rust/snippets/rocket_hello_world/target/debug/build/ring-acb4be178f9dcdf5/out/p256-x86_64-asm-macosx.o" "/Users/kazukihigashiguchi/.cargo/registry/src/github.com-1ecc6299db9ec823/ring-0.11.0/pregenerated/p256-x86_64-asm-macosx.S"
+running "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-m64" "-I" "include" "-std=c1x" "-Wbad-function-cast" "-Wmissing-prototypes" "-Wnested-externs" "-Wstrict-prototypes" "-fdata-sections" "-ffunction-sections" "-pedantic" "-pedantic-errors" "-Wall" "-Wextra" "-Wcast-align" "-Wcast-qual" "-Wenum-compare" "-Wfloat-equal" "-Wformat=2" "-Winline" "-Winvalid-pch" "-Wmissing-declarations" "-Wmissing-field-initializers" "-Wmissing-include-dirs" "-Wredundant-decls" "-Wshadow" "-Wsign-compare" "-Wundef" "-Wuninitialized" "-Wwrite-strings" "-fno-strict-aliasing" "-fvisibility=hidden" "-Wno-cast-align" "-fstack-protector" "-gfull" "-D_XOPEN_SOURCE=700" "-Wall" "-Wextra" "-c" "-o/Users/kazukihigashiguchi/tmp/rust/snippets/rocket_hello_world/target/debug/build/ring-acb4be178f9dcdf5/out/generic.o" "crypto/bn/generic.c"
+running "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-m64" "-I" "include" "-std=c1x" "-Wbad-function-cast" "-Wmissing-prototypes" "-Wnested-externs" "-Wstrict-prototypes" "-fdata-sections" "-ffunction-sections" "-pedantic" "-pedantic-errors" "-Wall" "-Wextra" "-Wcast-align" "-Wcast-qual" "-Wenum-compare" "-Wfloat-equal" "-Wformat=2" "-Winline" "-Winvalid-pch" "-Wmissing-declarations" "-Wmissing-field-initializers" "-Wmissing-include-dirs" "-Wredundant-decls" "-Wshadow" "-Wsign-compare" "-Wundef" "-Wuninitialized" "-Wwrite-strings" "-fno-strict-aliasing" "-fvisibility=hidden" "-Wno-cast-align" "-fstack-protector" "-gfull" "-D_XOPEN_SOURCE=700" "-Wall" "-Wextra" "-c" "-o/Users/kazukihigashiguchi/tmp/rust/snippets/rocket_hello_world/target/debug/build/ring-acb4be178f9dcdf5/out/constant_time_test.o" "crypto/constant_time_test.c"
+OPT_LEVEL = Some("0")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+CC_x86_64-apple-darwin = None
+CC_x86_64_apple_darwin = None
+HOST_CC = None
+CC = None
+HOST = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+CFLAGS_x86_64-apple-darwin = None
+CFLAGS_x86_64_apple_darwin = None
+HOST_CFLAGS = None
+CFLAGS = None
+DEBUG = Some("true")
+running "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-m64" "-I" "include" "-fdata-sections" "-ffunction-sections" "-pedantic" "-pedantic-errors" "-Wall" "-Wextra" "-Wcast-align" "-Wcast-qual" "-Wenum-compare" "-Wfloat-equal" "-Wformat=2" "-Winline" "-Winvalid-pch" "-Wmissing-declarations" "-Wmissing-field-initializers" "-Wmissing-include-dirs" "-Wredundant-decls" "-Wshadow" "-Wsign-compare" "-Wundef" "-Wuninitialized" "-Wwrite-strings" "-fno-strict-aliasing" "-fvisibility=hidden" "-Wno-cast-align" "-fstack-protector" "-gfull" "-D_XOPEN_SOURCE=700" "-Wall" "-Wextra" "-c" "-o/Users/kazukihigashiguchi/tmp/rust/snippets/rocket_hello_world/target/debug/build/ring-acb4be178f9dcdf5/out/aesni-x86_64-macosx.o" "/Users/kazukihigashiguchi/.cargo/registry/src/github.com-1ecc6299db9ec823/ring-0.11.0/pregenerated/aesni-x86_64-macosx.S"
+OPT_LEVEL = Some("0")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+CC_x86_64-apple-darwin = None
+CC_x86_64_apple_darwin = None
+HOST_CC = None
+CC = None
+HOST = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+CFLAGS_x86_64-apple-darwin = None
+CFLAGS_x86_64_apple_darwin = None
+HOST_CFLAGS = None
+CFLAGS = None
+DEBUG = Some("true")
+running "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-m64" "-I" "include" "-fdata-sections" "-ffunction-sections" "-pedantic" "-pedantic-errors" "-Wall" "-Wextra" "-Wcast-align" "-Wcast-qual" "-Wenum-compare" "-Wfloat-equal" "-Wformat=2" "-Winline" "-Winvalid-pch" "-Wmissing-declarations" "-Wmissing-field-initializers" "-Wmissing-include-dirs" "-Wredundant-decls" "-Wshadow" "-Wsign-compare" "-Wundef" "-Wuninitialized" "-Wwrite-strings" "-fno-strict-aliasing" "-fvisibility=hidden" "-Wno-cast-align" "-fstack-protector" "-gfull" "-D_XOPEN_SOURCE=700" "-Wall" "-Wextra" "-c" "-o/Users/kazukihigashiguchi/tmp/rust/snippets/rocket_hello_world/target/debug/build/ring-acb4be178f9dcdf5/out/aesni-gcm-x86_64-macosx.o" "/Users/kazukihigashiguchi/.cargo/registry/src/github.com-1ecc6299db9ec823/ring-0.11.0/pregenerated/aesni-gcm-x86_64-macosx.S"
+OPT_LEVEL = Some("0")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+CC_x86_64-apple-darwin = None
+CC_x86_64_apple_darwin = None
+HOST_CC = None
+CC = None
+HOST = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+CFLAGS_x86_64-apple-darwin = None
+CFLAGS_x86_64_apple_darwin = None
+HOST_CFLAGS = None
+CFLAGS = None
+DEBUG = Some("true")
+running "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-m64" "-I" "include" "-fdata-sections" "-ffunction-sections" "-pedantic" "-pedantic-errors" "-Wall" "-Wextra" "-Wcast-align" "-Wcast-qual" "-Wenum-compare" "-Wfloat-equal" "-Wformat=2" "-Winline" "-Winvalid-pch" "-Wmissing-declarations" "-Wmissing-field-initializers" "-Wmissing-include-dirs" "-Wredundant-decls" "-Wshadow" "-Wsign-compare" "-Wundef" "-Wuninitialized" "-Wwrite-strings" "-fno-strict-aliasing" "-fvisibility=hidden" "-Wno-cast-align" "-fstack-protector" "-gfull" "-D_XOPEN_SOURCE=700" "-Wall" "-Wextra" "-c" "-o/Users/kazukihigashiguchi/tmp/rust/snippets/rocket_hello_world/target/debug/build/ring-acb4be178f9dcdf5/out/ghash-x86_64-macosx.o" "/Users/kazukihigashiguchi/.cargo/registry/src/github.com-1ecc6299db9ec823/ring-0.11.0/pregenerated/ghash-x86_64-macosx.S"
+OPT_LEVEL = Some("0")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+CC_x86_64-apple-darwin = None
+CC_x86_64_apple_darwin = None
+HOST_CC = None
+CC = None
+HOST = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+CFLAGS_x86_64-apple-darwin = None
+CFLAGS_x86_64_apple_darwin = None
+HOST_CFLAGS = None
+CFLAGS = None
+DEBUG = Some("true")
+running "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-m64" "-I" "include" "-fdata-sections" "-ffunction-sections" "-pedantic" "-pedantic-errors" "-Wall" "-Wextra" "-Wcast-align" "-Wcast-qual" "-Wenum-compare" "-Wfloat-equal" "-Wformat=2" "-Winline" "-Winvalid-pch" "-Wmissing-declarations" "-Wmissing-field-initializers" "-Wmissing-include-dirs" "-Wredundant-decls" "-Wshadow" "-Wsign-compare" "-Wundef" "-Wuninitialized" "-Wwrite-strings" "-fno-strict-aliasing" "-fvisibility=hidden" "-Wno-cast-align" "-fstack-protector" "-gfull" "-D_XOPEN_SOURCE=700" "-Wall" "-Wextra" "-c" "-o/Users/kazukihigashiguchi/tmp/rust/snippets/rocket_hello_world/target/debug/build/ring-acb4be178f9dcdf5/out/bsaes-x86_64-macosx.o" "/Users/kazukihigashiguchi/.cargo/registry/src/github.com-1ecc6299db9ec823/ring-0.11.0/pregenerated/bsaes-x86_64-macosx.S"
+OPT_LEVEL = Some("0")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+CC_x86_64-apple-darwin = None
+CC_x86_64_apple_darwin = None
+HOST_CC = None
+CC = None
+HOST = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+CFLAGS_x86_64-apple-darwin = None
+CFLAGS_x86_64_apple_darwin = None
+HOST_CFLAGS = None
+CFLAGS = None
+DEBUG = Some("true")
+running "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-m64" "-I" "include" "-fdata-sections" "-ffunction-sections" "-pedantic" "-pedantic-errors" "-Wall" "-Wextra" "-Wcast-align" "-Wcast-qual" "-Wenum-compare" "-Wfloat-equal" "-Wformat=2" "-Winline" "-Winvalid-pch" "-Wmissing-declarations" "-Wmissing-field-initializers" "-Wmissing-include-dirs" "-Wredundant-decls" "-Wshadow" "-Wsign-compare" "-Wundef" "-Wuninitialized" "-Wwrite-strings" "-fno-strict-aliasing" "-fvisibility=hidden" "-Wno-cast-align" "-fstack-protector" "-gfull" "-D_XOPEN_SOURCE=700" "-Wall" "-Wextra" "-c" "-o/Users/kazukihigashiguchi/tmp/rust/snippets/rocket_hello_world/target/debug/build/ring-acb4be178f9dcdf5/out/poly1305-x86_64-macosx.o" "/Users/kazukihigashiguchi/.cargo/registry/src/github.com-1ecc6299db9ec823/ring-0.11.0/pregenerated/poly1305-x86_64-macosx.S"
+OPT_LEVEL = Some("0")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+CC_x86_64-apple-darwin = None
+CC_x86_64_apple_darwin = None
+HOST_CC = None
+CC = None
+HOST = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+CFLAGS_x86_64-apple-darwin = None
+CFLAGS_x86_64_apple_darwin = None
+HOST_CFLAGS = None
+CFLAGS = None
+DEBUG = Some("true")
+running "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-m64" "-I" "include" "-fdata-sections" "-ffunction-sections" "-pedantic" "-pedantic-errors" "-Wall" "-Wextra" "-Wcast-align" "-Wcast-qual" "-Wenum-compare" "-Wfloat-equal" "-Wformat=2" "-Winline" "-Winvalid-pch" "-Wmissing-declarations" "-Wmissing-field-initializers" "-Wmissing-include-dirs" "-Wredundant-decls" "-Wshadow" "-Wsign-compare" "-Wundef" "-Wuninitialized" "-Wwrite-strings" "-fno-strict-aliasing" "-fvisibility=hidden" "-Wno-cast-align" "-fstack-protector" "-gfull" "-D_XOPEN_SOURCE=700" "-Wall" "-Wextra" "-c" "-o/Users/kazukihigashiguchi/tmp/rust/snippets/rocket_hello_world/target/debug/build/ring-acb4be178f9dcdf5/out/vpaes-x86_64-macosx.o" "/Users/kazukihigashiguchi/.cargo/registry/src/github.com-1ecc6299db9ec823/ring-0.11.0/pregenerated/vpaes-x86_64-macosx.S"
+running: "ar" "crs" "/Users/kazukihigashiguchi/tmp/rust/snippets/rocket_hello_world/target/debug/build/ring-acb4be178f9dcdf5/out/libring-test.a" "/Users/kazukihigashiguchi/tmp/rust/snippets/rocket_hello_world/target/debug/build/ring-acb4be178f9dcdf5/out/constant_time_test.o"
+OPT_LEVEL = Some("0")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+CC_x86_64-apple-darwin = None
+CC_x86_64_apple_darwin = None
+HOST_CC = None
+CC = None
+HOST = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+CFLAGS_x86_64-apple-darwin = None
+CFLAGS_x86_64_apple_darwin = None
+HOST_CFLAGS = None
+CFLAGS = None
+DEBUG = Some("true")
+running "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-m64" "-I" "include" "-fdata-sections" "-ffunction-sections" "-pedantic" "-pedantic-errors" "-Wall" "-Wextra" "-Wcast-align" "-Wcast-qual" "-Wenum-compare" "-Wfloat-equal" "-Wformat=2" "-Winline" "-Winvalid-pch" "-Wmissing-declarations" "-Wmissing-field-initializers" "-Wmissing-include-dirs" "-Wredundant-decls" "-Wshadow" "-Wsign-compare" "-Wundef" "-Wuninitialized" "-Wwrite-strings" "-fno-strict-aliasing" "-fvisibility=hidden" "-Wno-cast-align" "-fstack-protector" "-gfull" "-D_XOPEN_SOURCE=700" "-Wall" "-Wextra" "-c" "-o/Users/kazukihigashiguchi/tmp/rust/snippets/rocket_hello_world/target/debug/build/ring-acb4be178f9dcdf5/out/x86_64-mont-macosx.o" "/Users/kazukihigashiguchi/.cargo/registry/src/github.com-1ecc6299db9ec823/ring-0.11.0/pregenerated/x86_64-mont-macosx.S"
+OPT_LEVEL = Some("0")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+CC_x86_64-apple-darwin = None
+CC_x86_64_apple_darwin = None
+HOST_CC = None
+CC = None
+HOST = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+CFLAGS_x86_64-apple-darwin = None
+CFLAGS_x86_64_apple_darwin = None
+HOST_CFLAGS = None
+CFLAGS = None
+DEBUG = Some("true")
+running "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-m64" "-I" "include" "-fdata-sections" "-ffunction-sections" "-pedantic" "-pedantic-errors" "-Wall" "-Wextra" "-Wcast-align" "-Wcast-qual" "-Wenum-compare" "-Wfloat-equal" "-Wformat=2" "-Winline" "-Winvalid-pch" "-Wmissing-declarations" "-Wmissing-field-initializers" "-Wmissing-include-dirs" "-Wredundant-decls" "-Wshadow" "-Wsign-compare" "-Wundef" "-Wuninitialized" "-Wwrite-strings" "-fno-strict-aliasing" "-fvisibility=hidden" "-Wno-cast-align" "-fstack-protector" "-gfull" "-D_XOPEN_SOURCE=700" "-Wall" "-Wextra" "-c" "-o/Users/kazukihigashiguchi/tmp/rust/snippets/rocket_hello_world/target/debug/build/ring-acb4be178f9dcdf5/out/sha512-x86_64-macosx.o" "/Users/kazukihigashiguchi/.cargo/registry/src/github.com-1ecc6299db9ec823/ring-0.11.0/pregenerated/sha512-x86_64-macosx.S"
+OPT_LEVEL = Some("0")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+CC_x86_64-apple-darwin = None
+CC_x86_64_apple_darwin = None
+HOST_CC = None
+CC = None
+HOST = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+CFLAGS_x86_64-apple-darwin = None
+CFLAGS_x86_64_apple_darwin = None
+HOST_CFLAGS = None
+CFLAGS = None
+DEBUG = Some("true")
+running "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-m64" "-I" "include" "-std=c1x" "-Wbad-function-cast" "-Wmissing-prototypes" "-Wnested-externs" "-Wstrict-prototypes" "-fdata-sections" "-ffunction-sections" "-pedantic" "-pedantic-errors" "-Wall" "-Wextra" "-Wcast-align" "-Wcast-qual" "-Wenum-compare" "-Wfloat-equal" "-Wformat=2" "-Winline" "-Winvalid-pch" "-Wmissing-declarations" "-Wmissing-field-initializers" "-Wmissing-include-dirs" "-Wredundant-decls" "-Wshadow" "-Wsign-compare" "-Wundef" "-Wuninitialized" "-Wwrite-strings" "-fno-strict-aliasing" "-fvisibility=hidden" "-Wno-cast-align" "-fstack-protector" "-gfull" "-D_XOPEN_SOURCE=700" "-Wall" "-Wextra" "-c" "-o/Users/kazukihigashiguchi/tmp/rust/snippets/rocket_hello_world/target/debug/build/ring-acb4be178f9dcdf5/out/montgomery.o" "crypto/bn/montgomery.c"
+OPT_LEVEL = Some("0")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+CC_x86_64-apple-darwin = None
+CC_x86_64_apple_darwin = None
+HOST_CC = None
+CC = None
+HOST = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+CFLAGS_x86_64-apple-darwin = None
+CFLAGS_x86_64_apple_darwin = None
+HOST_CFLAGS = None
+CFLAGS = None
+DEBUG = Some("true")
+running "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-m64" "-I" "include" "-fdata-sections" "-ffunction-sections" "-pedantic" "-pedantic-errors" "-Wall" "-Wextra" "-Wcast-align" "-Wcast-qual" "-Wenum-compare" "-Wfloat-equal" "-Wformat=2" "-Winline" "-Winvalid-pch" "-Wmissing-declarations" "-Wmissing-field-initializers" "-Wmissing-include-dirs" "-Wredundant-decls" "-Wshadow" "-Wsign-compare" "-Wundef" "-Wuninitialized" "-Wwrite-strings" "-fno-strict-aliasing" "-fvisibility=hidden" "-Wno-cast-align" "-fstack-protector" "-gfull" "-D_XOPEN_SOURCE=700" "-Wall" "-Wextra" "-c" "-o/Users/kazukihigashiguchi/tmp/rust/snippets/rocket_hello_world/target/debug/build/ring-acb4be178f9dcdf5/out/x86_64-mont5-macosx.o" "/Users/kazukihigashiguchi/.cargo/registry/src/github.com-1ecc6299db9ec823/ring-0.11.0/pregenerated/x86_64-mont5-macosx.S"
+OPT_LEVEL = Some("0")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+CC_x86_64-apple-darwin = None
+CC_x86_64_apple_darwin = None
+HOST_CC = None
+CC = None
+HOST = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+CFLAGS_x86_64-apple-darwin = None
+CFLAGS_x86_64_apple_darwin = None
+HOST_CFLAGS = None
+CFLAGS = None
+DEBUG = Some("true")
+running "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-m64" "-I" "include" "-fdata-sections" "-ffunction-sections" "-pedantic" "-pedantic-errors" "-Wall" "-Wextra" "-Wcast-align" "-Wcast-qual" "-Wenum-compare" "-Wfloat-equal" "-Wformat=2" "-Winline" "-Winvalid-pch" "-Wmissing-declarations" "-Wmissing-field-initializers" "-Wmissing-include-dirs" "-Wredundant-decls" "-Wshadow" "-Wsign-compare" "-Wundef" "-Wuninitialized" "-Wwrite-strings" "-fno-strict-aliasing" "-fvisibility=hidden" "-Wno-cast-align" "-fstack-protector" "-gfull" "-D_XOPEN_SOURCE=700" "-Wall" "-Wextra" "-c" "-o/Users/kazukihigashiguchi/tmp/rust/snippets/rocket_hello_world/target/debug/build/ring-acb4be178f9dcdf5/out/sha256-x86_64-macosx.o" "/Users/kazukihigashiguchi/.cargo/registry/src/github.com-1ecc6299db9ec823/ring-0.11.0/pregenerated/sha256-x86_64-macosx.S"
+OPT_LEVEL = Some("0")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+CC_x86_64-apple-darwin = None
+CC_x86_64_apple_darwin = None
+HOST_CC = None
+CC = None
+HOST = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+CFLAGS_x86_64-apple-darwin = None
+CFLAGS_x86_64_apple_darwin = None
+HOST_CFLAGS = None
+CFLAGS = None
+DEBUG = Some("true")
+running "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-m64" "-I" "include" "-fdata-sections" "-ffunction-sections" "-pedantic" "-pedantic-errors" "-Wall" "-Wextra" "-Wcast-align" "-Wcast-qual" "-Wenum-compare" "-Wfloat-equal" "-Wformat=2" "-Winline" "-Winvalid-pch" "-Wmissing-declarations" "-Wmissing-field-initializers" "-Wmissing-include-dirs" "-Wredundant-decls" "-Wshadow" "-Wsign-compare" "-Wundef" "-Wuninitialized" "-Wwrite-strings" "-fno-strict-aliasing" "-fvisibility=hidden" "-Wno-cast-align" "-fstack-protector" "-gfull" "-D_XOPEN_SOURCE=700" "-Wall" "-Wextra" "-c" "-o/Users/kazukihigashiguchi/tmp/rust/snippets/rocket_hello_world/target/debug/build/ring-acb4be178f9dcdf5/out/chacha-x86_64-macosx.o" "/Users/kazukihigashiguchi/.cargo/registry/src/github.com-1ecc6299db9ec823/ring-0.11.0/pregenerated/chacha-x86_64-macosx.S"
+OPT_LEVEL = Some("0")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+CC_x86_64-apple-darwin = None
+CC_x86_64_apple_darwin = None
+HOST_CC = None
+CC = None
+HOST = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+CFLAGS_x86_64-apple-darwin = None
+CFLAGS_x86_64_apple_darwin = None
+HOST_CFLAGS = None
+CFLAGS = None
+DEBUG = Some("true")
+running "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-m64" "-I" "include" "-std=c1x" "-Wbad-function-cast" "-Wmissing-prototypes" "-Wnested-externs" "-Wstrict-prototypes" "-fdata-sections" "-ffunction-sections" "-pedantic" "-pedantic-errors" "-Wall" "-Wextra" "-Wcast-align" "-Wcast-qual" "-Wenum-compare" "-Wfloat-equal" "-Wformat=2" "-Winline" "-Winvalid-pch" "-Wmissing-declarations" "-Wmissing-field-initializers" "-Wmissing-include-dirs" "-Wredundant-decls" "-Wshadow" "-Wsign-compare" "-Wundef" "-Wuninitialized" "-Wwrite-strings" "-fno-strict-aliasing" "-fvisibility=hidden" "-Wno-cast-align" "-fstack-protector" "-gfull" "-D_XOPEN_SOURCE=700" "-Wall" "-Wextra" "-c" "-o/Users/kazukihigashiguchi/tmp/rust/snippets/rocket_hello_world/target/debug/build/ring-acb4be178f9dcdf5/out/montgomery_inv.o" "crypto/bn/montgomery_inv.c"
+OPT_LEVEL = Some("0")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+CC_x86_64-apple-darwin = None
+CC_x86_64_apple_darwin = None
+HOST_CC = None
+CC = None
+HOST = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+CFLAGS_x86_64-apple-darwin = None
+CFLAGS_x86_64_apple_darwin = None
+HOST_CFLAGS = None
+CFLAGS = None
+DEBUG = Some("true")
+running "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-m64" "-I" "include" "-std=c1x" "-Wbad-function-cast" "-Wmissing-prototypes" "-Wnested-externs" "-Wstrict-prototypes" "-fdata-sections" "-ffunction-sections" "-pedantic" "-pedantic-errors" "-Wall" "-Wextra" "-Wcast-align" "-Wcast-qual" "-Wenum-compare" "-Wfloat-equal" "-Wformat=2" "-Winline" "-Winvalid-pch" "-Wmissing-declarations" "-Wmissing-field-initializers" "-Wmissing-include-dirs" "-Wredundant-decls" "-Wshadow" "-Wsign-compare" "-Wundef" "-Wuninitialized" "-Wwrite-strings" "-fno-strict-aliasing" "-fvisibility=hidden" "-Wno-cast-align" "-fstack-protector" "-gfull" "-D_XOPEN_SOURCE=700" "-Wall" "-Wextra" "-c" "-o/Users/kazukihigashiguchi/tmp/rust/snippets/rocket_hello_world/target/debug/build/ring-acb4be178f9dcdf5/out/aes.o" "crypto/aes/aes.c"
+OPT_LEVEL = Some("0")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+CC_x86_64-apple-darwin = None
+CC_x86_64_apple_darwin = None
+HOST_CC = None
+CC = None
+HOST = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+CFLAGS_x86_64-apple-darwin = None
+CFLAGS_x86_64_apple_darwin = None
+HOST_CFLAGS = None
+CFLAGS = None
+DEBUG = Some("true")
+running "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-m64" "-I" "include" "-fdata-sections" "-ffunction-sections" "-pedantic" "-pedantic-errors" "-Wall" "-Wextra" "-Wcast-align" "-Wcast-qual" "-Wenum-compare" "-Wfloat-equal" "-Wformat=2" "-Winline" "-Winvalid-pch" "-Wmissing-declarations" "-Wmissing-field-initializers" "-Wmissing-include-dirs" "-Wredundant-decls" "-Wshadow" "-Wsign-compare" "-Wundef" "-Wuninitialized" "-Wwrite-strings" "-fno-strict-aliasing" "-fvisibility=hidden" "-Wno-cast-align" "-fstack-protector" "-gfull" "-D_XOPEN_SOURCE=700" "-Wall" "-Wextra" "-c" "-o/Users/kazukihigashiguchi/tmp/rust/snippets/rocket_hello_world/target/debug/build/ring-acb4be178f9dcdf5/out/ecp_nistz256-x86_64-macosx.o" "/Users/kazukihigashiguchi/.cargo/registry/src/github.com-1ecc6299db9ec823/ring-0.11.0/pregenerated/ecp_nistz256-x86_64-macosx.S"
+OPT_LEVEL = Some("0")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+CC_x86_64-apple-darwin = None
+CC_x86_64_apple_darwin = None
+HOST_CC = None
+CC = None
+HOST = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+CFLAGS_x86_64-apple-darwin = None
+CFLAGS_x86_64_apple_darwin = None
+HOST_CFLAGS = None
+CFLAGS = None
+DEBUG = Some("true")
+running "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-m64" "-I" "include" "-std=c1x" "-Wbad-function-cast" "-Wmissing-prototypes" "-Wnested-externs" "-Wstrict-prototypes" "-fdata-sections" "-ffunction-sections" "-pedantic" "-pedantic-errors" "-Wall" "-Wextra" "-Wcast-align" "-Wcast-qual" "-Wenum-compare" "-Wfloat-equal" "-Wformat=2" "-Winline" "-Winvalid-pch" "-Wmissing-declarations" "-Wmissing-field-initializers" "-Wmissing-include-dirs" "-Wredundant-decls" "-Wshadow" "-Wsign-compare" "-Wundef" "-Wuninitialized" "-Wwrite-strings" "-fno-strict-aliasing" "-fvisibility=hidden" "-Wno-cast-align" "-fstack-protector" "-gfull" "-D_XOPEN_SOURCE=700" "-Wall" "-Wextra" "-c" "-o/Users/kazukihigashiguchi/tmp/rust/snippets/rocket_hello_world/target/debug/build/ring-acb4be178f9dcdf5/out/mul.o" "crypto/bn/mul.c"
+OPT_LEVEL = Some("0")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+CC_x86_64-apple-darwin = None
+CC_x86_64_apple_darwin = None
+HOST_CC = None
+CC = None
+HOST = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+CFLAGS_x86_64-apple-darwin = None
+CFLAGS_x86_64_apple_darwin = None
+HOST_CFLAGS = None
+CFLAGS = None
+DEBUG = Some("true")
+running "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-m64" "-I" "include" "-std=c1x" "-Wbad-function-cast" "-Wmissing-prototypes" "-Wnested-externs" "-Wstrict-prototypes" "-fdata-sections" "-ffunction-sections" "-pedantic" "-pedantic-errors" "-Wall" "-Wextra" "-Wcast-align" "-Wcast-qual" "-Wenum-compare" "-Wfloat-equal" "-Wformat=2" "-Winline" "-Winvalid-pch" "-Wmissing-declarations" "-Wmissing-field-initializers" "-Wmissing-include-dirs" "-Wredundant-decls" "-Wshadow" "-Wsign-compare" "-Wundef" "-Wuninitialized" "-Wwrite-strings" "-fno-strict-aliasing" "-fvisibility=hidden" "-Wno-cast-align" "-fstack-protector" "-gfull" "-D_XOPEN_SOURCE=700" "-Wall" "-Wextra" "-c" "-o/Users/kazukihigashiguchi/tmp/rust/snippets/rocket_hello_world/target/debug/build/ring-acb4be178f9dcdf5/out/bn.o" "crypto/bn/bn.c"
+OPT_LEVEL = Some("0")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+CC_x86_64-apple-darwin = None
+CC_x86_64_apple_darwin = None
+HOST_CC = None
+CC = None
+HOST = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+CFLAGS_x86_64-apple-darwin = None
+CFLAGS_x86_64_apple_darwin = None
+HOST_CFLAGS = None
+CFLAGS = None
+DEBUG = Some("true")
+running "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-m64" "-I" "include" "-std=c1x" "-Wbad-function-cast" "-Wmissing-prototypes" "-Wnested-externs" "-Wstrict-prototypes" "-fdata-sections" "-ffunction-sections" "-pedantic" "-pedantic-errors" "-Wall" "-Wextra" "-Wcast-align" "-Wcast-qual" "-Wenum-compare" "-Wfloat-equal" "-Wformat=2" "-Winline" "-Winvalid-pch" "-Wmissing-declarations" "-Wmissing-field-initializers" "-Wmissing-include-dirs" "-Wredundant-decls" "-Wshadow" "-Wsign-compare" "-Wundef" "-Wuninitialized" "-Wwrite-strings" "-fno-strict-aliasing" "-fvisibility=hidden" "-Wno-cast-align" "-fstack-protector" "-gfull" "-D_XOPEN_SOURCE=700" "-Wall" "-Wextra" "-c" "-o/Users/kazukihigashiguchi/tmp/rust/snippets/rocket_hello_world/target/debug/build/ring-acb4be178f9dcdf5/out/ecp_nistz256.o" "crypto/ec/ecp_nistz256.c"
+OPT_LEVEL = Some("0")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+CC_x86_64-apple-darwin = None
+CC_x86_64_apple_darwin = None
+HOST_CC = None
+CC = None
+HOST = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+CFLAGS_x86_64-apple-darwin = None
+CFLAGS_x86_64_apple_darwin = None
+HOST_CFLAGS = None
+CFLAGS = None
+DEBUG = Some("true")
+running "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-m64" "-I" "include" "-std=c1x" "-Wbad-function-cast" "-Wmissing-prototypes" "-Wnested-externs" "-Wstrict-prototypes" "-fdata-sections" "-ffunction-sections" "-pedantic" "-pedantic-errors" "-Wall" "-Wextra" "-Wcast-align" "-Wcast-qual" "-Wenum-compare" "-Wfloat-equal" "-Wformat=2" "-Winline" "-Winvalid-pch" "-Wmissing-declarations" "-Wmissing-field-initializers" "-Wmissing-include-dirs" "-Wredundant-decls" "-Wshadow" "-Wsign-compare" "-Wundef" "-Wuninitialized" "-Wwrite-strings" "-fno-strict-aliasing" "-fvisibility=hidden" "-Wno-cast-align" "-fstack-protector" "-gfull" "-D_XOPEN_SOURCE=700" "-Wall" "-Wextra" "-c" "-o/Users/kazukihigashiguchi/tmp/rust/snippets/rocket_hello_world/target/debug/build/ring-acb4be178f9dcdf5/out/shift.o" "crypto/bn/shift.c"
+OPT_LEVEL = Some("0")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+CC_x86_64-apple-darwin = None
+CC_x86_64_apple_darwin = None
+HOST_CC = None
+CC = None
+HOST = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+CFLAGS_x86_64-apple-darwin = None
+CFLAGS_x86_64_apple_darwin = None
+HOST_CFLAGS = None
+CFLAGS = None
+DEBUG = Some("true")
+running "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-m64" "-I" "include" "-std=c1x" "-Wbad-function-cast" "-Wmissing-prototypes" "-Wnested-externs" "-Wstrict-prototypes" "-fdata-sections" "-ffunction-sections" "-pedantic" "-pedantic-errors" "-Wall" "-Wextra" "-Wcast-align" "-Wcast-qual" "-Wenum-compare" "-Wfloat-equal" "-Wformat=2" "-Winline" "-Winvalid-pch" "-Wmissing-declarations" "-Wmissing-field-initializers" "-Wmissing-include-dirs" "-Wredundant-decls" "-Wshadow" "-Wsign-compare" "-Wundef" "-Wuninitialized" "-Wwrite-strings" "-fno-strict-aliasing" "-fvisibility=hidden" "-Wno-cast-align" "-fstack-protector" "-gfull" "-D_XOPEN_SOURCE=700" "-Wall" "-Wextra" "-c" "-o/Users/kazukihigashiguchi/tmp/rust/snippets/rocket_hello_world/target/debug/build/ring-acb4be178f9dcdf5/out/exponentiation.o" "crypto/bn/exponentiation.c"
+OPT_LEVEL = Some("0")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+CC_x86_64-apple-darwin = None
+CC_x86_64_apple_darwin = None
+HOST_CC = None
+CC = None
+HOST = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+CFLAGS_x86_64-apple-darwin = None
+CFLAGS_x86_64_apple_darwin = None
+HOST_CFLAGS = None
+CFLAGS = None
+DEBUG = Some("true")
+running "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-m64" "-I" "include" "-std=c1x" "-Wbad-function-cast" "-Wmissing-prototypes" "-Wnested-externs" "-Wstrict-prototypes" "-fdata-sections" "-ffunction-sections" "-pedantic" "-pedantic-errors" "-Wall" "-Wextra" "-Wcast-align" "-Wcast-qual" "-Wenum-compare" "-Wfloat-equal" "-Wformat=2" "-Winline" "-Winvalid-pch" "-Wmissing-declarations" "-Wmissing-field-initializers" "-Wmissing-include-dirs" "-Wredundant-decls" "-Wshadow" "-Wsign-compare" "-Wundef" "-Wuninitialized" "-Wwrite-strings" "-fno-strict-aliasing" "-fvisibility=hidden" "-Wno-cast-align" "-fstack-protector" "-gfull" "-D_XOPEN_SOURCE=700" "-Wall" "-Wextra" "-c" "-o/Users/kazukihigashiguchi/tmp/rust/snippets/rocket_hello_world/target/debug/build/ring-acb4be178f9dcdf5/out/e_aes.o" "crypto/cipher/e_aes.c"
+OPT_LEVEL = Some("0")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+CC_x86_64-apple-darwin = None
+CC_x86_64_apple_darwin = None
+HOST_CC = None
+CC = None
+HOST = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+CFLAGS_x86_64-apple-darwin = None
+CFLAGS_x86_64_apple_darwin = None
+HOST_CFLAGS = None
+CFLAGS = None
+DEBUG = Some("true")
+running "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-m64" "-I" "include" "-std=c1x" "-Wbad-function-cast" "-Wmissing-prototypes" "-Wnested-externs" "-Wstrict-prototypes" "-fdata-sections" "-ffunction-sections" "-pedantic" "-pedantic-errors" "-Wall" "-Wextra" "-Wcast-align" "-Wcast-qual" "-Wenum-compare" "-Wfloat-equal" "-Wformat=2" "-Winline" "-Winvalid-pch" "-Wmissing-declarations" "-Wmissing-field-initializers" "-Wmissing-include-dirs" "-Wredundant-decls" "-Wshadow" "-Wsign-compare" "-Wundef" "-Wuninitialized" "-Wwrite-strings" "-fno-strict-aliasing" "-fvisibility=hidden" "-Wno-cast-align" "-fstack-protector" "-gfull" "-D_XOPEN_SOURCE=700" "-Wall" "-Wextra" "-c" "-o/Users/kazukihigashiguchi/tmp/rust/snippets/rocket_hello_world/target/debug/build/ring-acb4be178f9dcdf5/out/mem.o" "crypto/mem.c"
+OPT_LEVEL = Some("0")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+CC_x86_64-apple-darwin = None
+CC_x86_64_apple_darwin = None
+HOST_CC = None
+CC = None
+HOST = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+CFLAGS_x86_64-apple-darwin = None
+CFLAGS_x86_64_apple_darwin = None
+HOST_CFLAGS = None
+CFLAGS = None
+DEBUG = Some("true")
+running "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-m64" "-I" "include" "-std=c1x" "-Wbad-function-cast" "-Wmissing-prototypes" "-Wnested-externs" "-Wstrict-prototypes" "-fdata-sections" "-ffunction-sections" "-pedantic" "-pedantic-errors" "-Wall" "-Wextra" "-Wcast-align" "-Wcast-qual" "-Wenum-compare" "-Wfloat-equal" "-Wformat=2" "-Winline" "-Winvalid-pch" "-Wmissing-declarations" "-Wmissing-field-initializers" "-Wmissing-include-dirs" "-Wredundant-decls" "-Wshadow" "-Wsign-compare" "-Wundef" "-Wuninitialized" "-Wwrite-strings" "-fno-strict-aliasing" "-fvisibility=hidden" "-Wno-cast-align" "-fstack-protector" "-gfull" "-D_XOPEN_SOURCE=700" "-Wall" "-Wextra" "-c" "-o/Users/kazukihigashiguchi/tmp/rust/snippets/rocket_hello_world/target/debug/build/ring-acb4be178f9dcdf5/out/gcm.o" "crypto/modes/gcm.c"
+OPT_LEVEL = Some("0")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+CC_x86_64-apple-darwin = None
+CC_x86_64_apple_darwin = None
+HOST_CC = None
+CC = None
+HOST = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+CFLAGS_x86_64-apple-darwin = None
+CFLAGS_x86_64_apple_darwin = None
+HOST_CFLAGS = None
+CFLAGS = None
+DEBUG = Some("true")
+running "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-m64" "-I" "include" "-std=c1x" "-Wbad-function-cast" "-Wmissing-prototypes" "-Wnested-externs" "-Wstrict-prototypes" "-fdata-sections" "-ffunction-sections" "-pedantic" "-pedantic-errors" "-Wall" "-Wextra" "-Wcast-align" "-Wcast-qual" "-Wenum-compare" "-Wfloat-equal" "-Wformat=2" "-Winline" "-Winvalid-pch" "-Wmissing-declarations" "-Wmissing-field-initializers" "-Wmissing-include-dirs" "-Wredundant-decls" "-Wshadow" "-Wsign-compare" "-Wundef" "-Wuninitialized" "-Wwrite-strings" "-fno-strict-aliasing" "-fvisibility=hidden" "-Wno-cast-align" "-fstack-protector" "-gfull" "-D_XOPEN_SOURCE=700" "-Wall" "-Wextra" "-c" "-o/Users/kazukihigashiguchi/tmp/rust/snippets/rocket_hello_world/target/debug/build/ring-acb4be178f9dcdf5/out/crypto.o" "crypto/crypto.c"
+OPT_LEVEL = Some("0")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+CC_x86_64-apple-darwin = None
+CC_x86_64_apple_darwin = None
+HOST_CC = None
+CC = None
+HOST = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+CFLAGS_x86_64-apple-darwin = None
+CFLAGS_x86_64_apple_darwin = None
+HOST_CFLAGS = None
+CFLAGS = None
+DEBUG = Some("true")
+running "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-m64" "-I" "include" "-std=c1x" "-Wbad-function-cast" "-Wmissing-prototypes" "-Wnested-externs" "-Wstrict-prototypes" "-fdata-sections" "-ffunction-sections" "-pedantic" "-pedantic-errors" "-Wall" "-Wextra" "-Wcast-align" "-Wcast-qual" "-Wenum-compare" "-Wfloat-equal" "-Wformat=2" "-Winline" "-Winvalid-pch" "-Wmissing-declarations" "-Wmissing-field-initializers" "-Wmissing-include-dirs" "-Wredundant-decls" "-Wshadow" "-Wsign-compare" "-Wundef" "-Wuninitialized" "-Wwrite-strings" "-fno-strict-aliasing" "-fvisibility=hidden" "-Wno-cast-align" "-fstack-protector" "-gfull" "-D_XOPEN_SOURCE=700" "-Wall" "-Wextra" "-c" "-o/Users/kazukihigashiguchi/tmp/rust/snippets/rocket_hello_world/target/debug/build/ring-acb4be178f9dcdf5/out/curve25519.o" "crypto/curve25519/curve25519.c"
+OPT_LEVEL = Some("0")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+CC_x86_64-apple-darwin = None
+CC_x86_64_apple_darwin = None
+HOST_CC = None
+CC = None
+HOST = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+CFLAGS_x86_64-apple-darwin = None
+CFLAGS_x86_64_apple_darwin = None
+HOST_CFLAGS = None
+CFLAGS = None
+DEBUG = Some("true")
+running "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-m64" "-I" "include" "-std=c1x" "-Wbad-function-cast" "-Wmissing-prototypes" "-Wnested-externs" "-Wstrict-prototypes" "-fdata-sections" "-ffunction-sections" "-pedantic" "-pedantic-errors" "-Wall" "-Wextra" "-Wcast-align" "-Wcast-qual" "-Wenum-compare" "-Wfloat-equal" "-Wformat=2" "-Winline" "-Winvalid-pch" "-Wmissing-declarations" "-Wmissing-field-initializers" "-Wmissing-include-dirs" "-Wredundant-decls" "-Wshadow" "-Wsign-compare" "-Wundef" "-Wuninitialized" "-Wwrite-strings" "-fno-strict-aliasing" "-fvisibility=hidden" "-Wno-cast-align" "-fstack-protector" "-gfull" "-D_XOPEN_SOURCE=700" "-Wall" "-Wextra" "-c" "-o/Users/kazukihigashiguchi/tmp/rust/snippets/rocket_hello_world/target/debug/build/ring-acb4be178f9dcdf5/out/gfp_p256.o" "crypto/ec/gfp_p256.c"
+OPT_LEVEL = Some("0")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+CC_x86_64-apple-darwin = None
+CC_x86_64_apple_darwin = None
+HOST_CC = None
+CC = None
+HOST = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+CFLAGS_x86_64-apple-darwin = None
+CFLAGS_x86_64_apple_darwin = None
+HOST_CFLAGS = None
+CFLAGS = None
+DEBUG = Some("true")
+running "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-m64" "-I" "include" "-std=c1x" "-Wbad-function-cast" "-Wmissing-prototypes" "-Wnested-externs" "-Wstrict-prototypes" "-fdata-sections" "-ffunction-sections" "-pedantic" "-pedantic-errors" "-Wall" "-Wextra" "-Wcast-align" "-Wcast-qual" "-Wenum-compare" "-Wfloat-equal" "-Wformat=2" "-Winline" "-Winvalid-pch" "-Wmissing-declarations" "-Wmissing-field-initializers" "-Wmissing-include-dirs" "-Wredundant-decls" "-Wshadow" "-Wsign-compare" "-Wundef" "-Wuninitialized" "-Wwrite-strings" "-fno-strict-aliasing" "-fvisibility=hidden" "-Wno-cast-align" "-fstack-protector" "-gfull" "-D_XOPEN_SOURCE=700" "-Wall" "-Wextra" "-c" "-o/Users/kazukihigashiguchi/tmp/rust/snippets/rocket_hello_world/target/debug/build/ring-acb4be178f9dcdf5/out/cpu-intel.o" "crypto/cpu-intel.c"
+OPT_LEVEL = Some("0")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+CC_x86_64-apple-darwin = None
+CC_x86_64_apple_darwin = None
+HOST_CC = None
+CC = None
+HOST = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+CFLAGS_x86_64-apple-darwin = None
+CFLAGS_x86_64_apple_darwin = None
+HOST_CFLAGS = None
+CFLAGS = None
+DEBUG = Some("true")
+running "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-m64" "-I" "include" "-std=c1x" "-Wbad-function-cast" "-Wmissing-prototypes" "-Wnested-externs" "-Wstrict-prototypes" "-fdata-sections" "-ffunction-sections" "-pedantic" "-pedantic-errors" "-Wall" "-Wextra" "-Wcast-align" "-Wcast-qual" "-Wenum-compare" "-Wfloat-equal" "-Wformat=2" "-Winline" "-Winvalid-pch" "-Wmissing-declarations" "-Wmissing-field-initializers" "-Wmissing-include-dirs" "-Wredundant-decls" "-Wshadow" "-Wsign-compare" "-Wundef" "-Wuninitialized" "-Wwrite-strings" "-fno-strict-aliasing" "-fvisibility=hidden" "-Wno-cast-align" "-fstack-protector" "-gfull" "-D_XOPEN_SOURCE=700" "-Wall" "-Wextra" "-c" "-o/Users/kazukihigashiguchi/tmp/rust/snippets/rocket_hello_world/target/debug/build/ring-acb4be178f9dcdf5/out/gfp_p384.o" "crypto/ec/gfp_p384.c"
+OPT_LEVEL = Some("0")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+CC_x86_64-apple-darwin = None
+CC_x86_64_apple_darwin = None
+HOST_CC = None
+CC = None
+HOST = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+CFLAGS_x86_64-apple-darwin = None
+CFLAGS_x86_64_apple_darwin = None
+HOST_CFLAGS = None
+CFLAGS = None
+DEBUG = Some("true")
+running "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-m64" "-I" "include" "-std=c1x" "-Wbad-function-cast" "-Wmissing-prototypes" "-Wnested-externs" "-Wstrict-prototypes" "-fdata-sections" "-ffunction-sections" "-pedantic" "-pedantic-errors" "-Wall" "-Wextra" "-Wcast-align" "-Wcast-qual" "-Wenum-compare" "-Wfloat-equal" "-Wformat=2" "-Winline" "-Winvalid-pch" "-Wmissing-declarations" "-Wmissing-field-initializers" "-Wmissing-include-dirs" "-Wredundant-decls" "-Wshadow" "-Wsign-compare" "-Wundef" "-Wuninitialized" "-Wwrite-strings" "-fno-strict-aliasing" "-fvisibility=hidden" "-Wno-cast-align" "-fstack-protector" "-gfull" "-D_XOPEN_SOURCE=700" "-Wall" "-Wextra" "-c" "-o/Users/kazukihigashiguchi/tmp/rust/snippets/rocket_hello_world/target/debug/build/ring-acb4be178f9dcdf5/out/x25519-x86_64.o" "crypto/curve25519/x25519-x86_64.c"
+OPT_LEVEL = Some("0")
+OPT_LEVEL = Some("0")
+TARGET = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+CC_x86_64-apple-darwin = None
+CC_x86_64-apple-darwin = None
+CC_x86_64_apple_darwin = None
+CC_x86_64_apple_darwin = None
+HOST_CC = None
+HOST_CC = None
+CC = None
+CC = None
+HOST = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+CFLAGS_x86_64-apple-darwin = None
+CFLAGS_x86_64_apple_darwin = None
+HOST_CFLAGS = None
+CFLAGS = None
+CFLAGS_x86_64-apple-darwin = None
+CFLAGS_x86_64_apple_darwin = None
+DEBUG = Some("true")
+HOST_CFLAGS = None
+CFLAGS = None
+DEBUG = Some("true")
+running "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-m64" "-I" "include" "-std=c1x" "-Wbad-function-cast" "-Wmissing-prototypes" "-Wnested-externs" "-Wstrict-prototypes" "-fdata-sections" "-ffunction-sections" "-pedantic" "-pedantic-errors" "-Wall" "-Wextra" "-Wcast-align" "-Wcast-qual" "-Wenum-compare" "-Wfloat-equal" "-Wformat=2" "-Winline" "-Winvalid-pch" "-Wmissing-declarations" "-Wmissing-field-initializers" "-Wmissing-include-dirs" "-Wredundant-decls" "-Wshadow" "-Wsign-compare" "-Wundef" "-Wuninitialized" "-Wwrite-strings" "-fno-strict-aliasing" "-fvisibility=hidden" "-Wno-cast-align" "-fstack-protector" "-gfull" "-D_XOPEN_SOURCE=700" "-Wall" "-Wextra" "-c" "-o/Users/kazukihigashiguchi/tmp/rust/snippets/rocket_hello_world/target/debug/build/ring-acb4be178f9dcdf5/out/limbs.o" "crypto/limbs/limbs.c"
+running "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-m64" "-I" "include" "-fdata-sections" "-ffunction-sections" "-pedantic" "-pedantic-errors" "-Wall" "-Wextra" "-Wcast-align" "-Wcast-qual" "-Wenum-compare" "-Wfloat-equal" "-Wformat=2" "-Winline" "-Winvalid-pch" "-Wmissing-declarations" "-Wmissing-field-initializers" "-Wmissing-include-dirs" "-Wredundant-decls" "-Wshadow" "-Wsign-compare" "-Wundef" "-Wuninitialized" "-Wwrite-strings" "-fno-strict-aliasing" "-fvisibility=hidden" "-Wno-cast-align" "-fstack-protector" "-gfull" "-D_XOPEN_SOURCE=700" "-Wall" "-Wextra" "-c" "-o/Users/kazukihigashiguchi/tmp/rust/snippets/rocket_hello_world/target/debug/build/ring-acb4be178f9dcdf5/out/x25519-asm-x86_64.o" "crypto/curve25519/asm/x25519-asm-x86_64.S"
+OPT_LEVEL = Some("0")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+CC_x86_64-apple-darwin = None
+CC_x86_64_apple_darwin = None
+HOST_CC = None
+CC = None
+HOST = Some("x86_64-apple-darwin")
+TARGET = Some("x86_64-apple-darwin")
+HOST = Some("x86_64-apple-darwin")
+CFLAGS_x86_64-apple-darwin = None
+CFLAGS_x86_64_apple_darwin = None
+HOST_CFLAGS = None
+CFLAGS = None
+DEBUG = Some("true")
+running "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-m64" "-I" "include" "-std=c1x" "-Wbad-function-cast" "-Wmissing-prototypes" "-Wnested-externs" "-Wstrict-prototypes" "-fdata-sections" "-ffunction-sections" "-pedantic" "-pedantic-errors" "-Wall" "-Wextra" "-Wcast-align" "-Wcast-qual" "-Wenum-compare" "-Wfloat-equal" "-Wformat=2" "-Winline" "-Winvalid-pch" "-Wmissing-declarations" "-Wmissing-field-initializers" "-Wmissing-include-dirs" "-Wredundant-decls" "-Wshadow" "-Wsign-compare" "-Wundef" "-Wuninitialized" "-Wwrite-strings" "-fno-strict-aliasing" "-fvisibility=hidden" "-Wno-cast-align" "-fstack-protector" "-gfull" "-D_XOPEN_SOURCE=700" "-Wall" "-Wextra" "-c" "-o/Users/kazukihigashiguchi/tmp/rust/snippets/rocket_hello_world/target/debug/build/ring-acb4be178f9dcdf5/out/ecp_nistz.o" "crypto/ec/ecp_nistz.c"
+running: "ar" "crs" "/Users/kazukihigashiguchi/tmp/rust/snippets/rocket_hello_world/target/debug/build/ring-acb4be178f9dcdf5/out/libring-core.a" "/Users/kazukihigashiguchi/tmp/rust/snippets/rocket_hello_world/target/debug/build/ring-acb4be178f9dcdf5/out/aes-x86_64-macosx.o" "/Users/kazukihigashiguchi/tmp/rust/snippets/rocket_hello_world/target/debug/build/ring-acb4be178f9dcdf5/out/aesni-x86_64-macosx.o" "/Users/kazukihigashiguchi/tmp/rust/snippets/rocket_hello_world/target/debug/build/ring-acb4be178f9dcdf5/out/bsaes-x86_64-macosx.o" "/Users/kazukihigashiguchi/tmp/rust/snippets/rocket_hello_world/target/debug/build/ring-acb4be178f9dcdf5/out/vpaes-x86_64-macosx.o" "/Users/kazukihigashiguchi/tmp/rust/snippets/rocket_hello_world/target/debug/build/ring-acb4be178f9dcdf5/out/x86_64-mont-macosx.o" "/Users/kazukihigashiguchi/tmp/rust/snippets/rocket_hello_world/target/debug/build/ring-acb4be178f9dcdf5/out/x86_64-mont5-macosx.o" "/Users/kazukihigashiguchi/tmp/rust/snippets/rocket_hello_world/target/debug/build/ring-acb4be178f9dcdf5/out/chacha-x86_64-macosx.o" "/Users/kazukihigashiguchi/tmp/rust/snippets/rocket_hello_world/target/debug/build/ring-acb4be178f9dcdf5/out/ecp_nistz256-x86_64-macosx.o" "/Users/kazukihigashiguchi/tmp/rust/snippets/rocket_hello_world/target/debug/build/ring-acb4be178f9dcdf5/out/p256-x86_64-asm-macosx.o" "/Users/kazukihigashiguchi/tmp/rust/snippets/rocket_hello_world/target/debug/build/ring-acb4be178f9dcdf5/out/aesni-gcm-x86_64-macosx.o" "/Users/kazukihigashiguchi/tmp/rust/snippets/rocket_hello_world/target/debug/build/ring-acb4be178f9dcdf5/out/ghash-x86_64-macosx.o" "/Users/kazukihigashiguchi/tmp/rust/snippets/rocket_hello_world/target/debug/build/ring-acb4be178f9dcdf5/out/poly1305-x86_64-macosx.o" "/Users/kazukihigashiguchi/tmp/rust/snippets/rocket_hello_world/target/debug/build/ring-acb4be178f9dcdf5/out/sha512-x86_64-macosx.o" "/Users/kazukihigashiguchi/tmp/rust/snippets/rocket_hello_world/target/debug/build/ring-acb4be178f9dcdf5/out/sha256-x86_64-macosx.o" "/Users/kazukihigashiguchi/tmp/rust/snippets/rocket_hello_world/target/debug/build/ring-acb4be178f9dcdf5/out/aes.o" "/Users/kazukihigashiguchi/tmp/rust/snippets/rocket_hello_world/target/debug/build/ring-acb4be178f9dcdf5/out/bn.o" "/Users/kazukihigashiguchi/tmp/rust/snippets/rocket_hello_world/target/debug/build/ring-acb4be178f9dcdf5/out/exponentiation.o" "/Users/kazukihigashiguchi/tmp/rust/snippets/rocket_hello_world/target/debug/build/ring-acb4be178f9dcdf5/out/generic.o" "/Users/kazukihigashiguchi/tmp/rust/snippets/rocket_hello_world/target/debug/build/ring-acb4be178f9dcdf5/out/montgomery.o" "/Users/kazukihigashiguchi/tmp/rust/snippets/rocket_hello_world/target/debug/build/ring-acb4be178f9dcdf5/out/montgomery_inv.o" "/Users/kazukihigashiguchi/tmp/rust/snippets/rocket_hello_world/target/debug/build/ring-acb4be178f9dcdf5/out/mul.o" "/Users/kazukihigashiguchi/tmp/rust/snippets/rocket_hello_world/target/debug/build/ring-acb4be178f9dcdf5/out/shift.o" "/Users/kazukihigashiguchi/tmp/rust/snippets/rocket_hello_world/target/debug/build/ring-acb4be178f9dcdf5/out/e_aes.o" "/Users/kazukihigashiguchi/tmp/rust/snippets/rocket_hello_world/target/debug/build/ring-acb4be178f9dcdf5/out/crypto.o" "/Users/kazukihigashiguchi/tmp/rust/snippets/rocket_hello_world/target/debug/build/ring-acb4be178f9dcdf5/out/curve25519.o" "/Users/kazukihigashiguchi/tmp/rust/snippets/rocket_hello_world/target/debug/build/ring-acb4be178f9dcdf5/out/ecp_nistz.o" "/Users/kazukihigashiguchi/tmp/rust/snippets/rocket_hello_world/target/debug/build/ring-acb4be178f9dcdf5/out/ecp_nistz256.o" "/Users/kazukihigashiguchi/tmp/rust/snippets/rocket_hello_world/target/debug/build/ring-acb4be178f9dcdf5/out/gfp_p256.o" "/Users/kazukihigashiguchi/tmp/rust/snippets/rocket_hello_world/target/debug/build/ring-acb4be178f9dcdf5/out/gfp_p384.o" "/Users/kazukihigashiguchi/tmp/rust/snippets/rocket_hello_world/target/debug/build/ring-acb4be178f9dcdf5/out/limbs.o" "/Users/kazukihigashiguchi/tmp/rust/snippets/rocket_hello_world/target/debug/build/ring-acb4be178f9dcdf5/out/mem.o" "/Users/kazukihigashiguchi/tmp/rust/snippets/rocket_hello_world/target/debug/build/ring-acb4be178f9dcdf5/out/gcm.o" "/Users/kazukihigashiguchi/tmp/rust/snippets/rocket_hello_world/target/debug/build/ring-acb4be178f9dcdf5/out/cpu-intel.o" "/Users/kazukihigashiguchi/tmp/rust/snippets/rocket_hello_world/target/debug/build/ring-acb4be178f9dcdf5/out/x25519-x86_64.o" "/Users/kazukihigashiguchi/tmp/rust/snippets/rocket_hello_world/target/debug/build/ring-acb4be178f9dcdf5/out/x25519-asm-x86_64.o"
+exit code: 0
+cargo:rustc-link-lib=static=ring-test
+exit code: 0
+cargo:rustc-link-lib=static=ring-core
+cargo:rustc-link-search=native=/Users/kazukihigashiguchi/tmp/rust/snippets/rocket_hello_world/target/debug/build/ring-acb4be178f9dcdf5/out
