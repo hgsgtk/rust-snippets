@@ -1,0 +1,1 @@
+{"rustc":2301133102454374455,"features":"[]","target":4535599466737463242,"profile":731176819336294830,"deps":[["rand v0.3.18",14467508362588020706]],"local":[{"MtimeBased":[[1511089352,0],"/Users/kazukihigashiguchi/tmp/rust/snippets/generate_rand/target/debug/.fingerprint/generate_rand-fdb644a30f6639d8/dep-bin-generate_rand-fdb644a30f6639d8"]}],"rustflags":[]}
