@@ -1,2 +1,6 @@
 # target to cargo build
 target
+
+# logging
+log/*
+!.gitkeep

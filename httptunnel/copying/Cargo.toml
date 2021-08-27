@@ -7,3 +7,4 @@ edition = "2018"
 
 [dependencies]
 tokio = { version = "1", features = ["full"] }
+log4rs = "1.0.0-alpha-1"
