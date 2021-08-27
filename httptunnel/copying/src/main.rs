@@ -1,9 +1,11 @@
-// TODO: fix compile warning
-// > unused `#[macro_use]` import
-// #[macro_use]
-// extern crate derive_builder;
-// #[macro_use]
-// extern crate serde_derive;
+#[macro_use]
+extern crate derive_builder;
+#[macro_use]
+extern crate serde_derive;
+
+// > そして lib.rs の中で以下のようにmodで参照してあげれば使えます。
+// https://keens.github.io/blog/2018/12/08/rustnomoju_runotsukaikata_2018_editionhan/
+mod configuration;
 
 // tokio: Tokio is an asynchronous runtime for the Rust programming language. It provides the building blocks needed for writing networking applications
 // https://tokio.rs/tokio/tutorial/hello-tokio
@@ -11,7 +13,8 @@ use tokio::io;
 
 // TODO: solve compile error
 // could not find `configuration` in the crate root
-// use crate::configuration::{ProxyConfiguration};
+use crate::configuration::{ProxyConfiguration};
+
 
 // log: A lightweight logging facade for Rust
 // https://crates.io/crates/log
@@ -24,11 +27,13 @@ use log4rs::Config;
 pub async fn main() -> io::Result<()> {
     init_logger();
 
-    // TODO: solve compile error
-    // let proxy_configuration = ProxyConfiguration::from_command_line().map_err(|e| {
-    //     println!("Failed to process parameters. See ./log/application.log for details");
-    //     e
-    // })?;
+    let proxy_configuration = ProxyConfiguration::from_command_line().map_err(|e| {
+        println!("Failed to process parameters. See ./log/application.log for details");
+        e
+    })?;
+    // Tips for deadcode
+    // > warning: unused variable: `proxy_configuration`
+    // > help: if this is intentional, prefix it with an underscore: `_proxy_configuration`
 
     // Contains the success value
     // https://doc.rust-lang.org/std/result/enum.Result.html#variant.Ok
