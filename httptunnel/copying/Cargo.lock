@@ -64,6 +64,7 @@ dependencies = [
 name = "copying"
 version = "0.1.0"
 dependencies = [
+ "log",
  "log4rs",
  "tokio",
 ]

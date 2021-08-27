@@ -2,6 +2,13 @@
 // https://tokio.rs/tokio/tutorial/hello-tokio
 use tokio::io;
 
+// log: A lightweight logging facade for Rust
+// https://crates.io/crates/log
+use log::{LevelFilter};
+use log4rs::append::console::ConsoleAppender;
+use log4rs::config::{Appender, Root};
+use log4rs::Config;
+
 #[tokio::main]
 pub async fn main() -> io::Result<()> {
     init_logger();
@@ -27,5 +34,24 @@ fn init_logger() {
             "Cannot initialize logger from {}, error=[{}]. Logging to the console.",
             logger_configuration, e
         );
+
+        let config = Config::builder()
+            .appender(
+                Appender::builder()
+                    // use std::boxed::Box; A pointer type for heap allocation.
+                    // https://doc.rust-lang.org/std/boxed/struct.Box.html
+                    // log4rs::append::console::ConsoleAppender; An appender which logs to standard out.
+                    // https://docs.rs/log4rs/0.8.3/log4rs/append/console/struct.ConsoleAppender.html
+                    .build("application", Box::new(ConsoleAppender::builder().build()))
+            )
+            .build(
+                Root::builder()
+                    .appender("application")
+                    // LevelFilter
+                    // https://docs.rs/log/0.4.0/log/enum.LevelFilter.html
+                    .build(LevelFilter::Info)
+            )
+            .unwrap();
+        log4rs::init_config(config).expect("Bug: bad default config");
     }
 }
