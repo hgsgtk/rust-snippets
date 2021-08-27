@@ -1,3 +1,4 @@
+use crate::relay::{RelayPolicy};
 
 // rust-native-tls: An abstraction over platform-specific TLS implementations.
 // https://crates.io/crates/native-tls
@@ -43,7 +44,7 @@ pub struct ClientConnectionConfig {
     #[serde(with = "humantime_serde")]
     pub initiation_timeout: Duration,
     // TODO: add configuration to set relay policy
-    // pub relay_policy: RelayPolicy,
+    pub relay_policy: RelayPolicy,
 }
 
 #[derive(Deserialize, Clone)]
@@ -59,7 +60,7 @@ pub struct TargetConnectionConfig {
     #[serde(with = "humantime_serde")]
     pub connect_timeout: Duration,
     // TODO: add configuration to set relay policy
-    // pub relay_policy: RelayPolicy,
+    pub relay_policy: RelayPolicy,
 }
 
 // serde::Deserialize
@@ -103,6 +104,8 @@ impl ProxyConfiguration {
         // > expected struct `ProxyConfiguration`, found struct `ProxyConfigurationBuilder`
         Ok(ProxyConfigurationBuilder::default()
             // TODO set some values
+            // Now we got an error at runtime.
+            // > thread 'main' panicked at 'ProxyConfigurationBuilder failed: "`mode` must be initialized"', src/configuration.rs:108:14
             .build()
             .expect("ProxyConfigurationBuilder failed"))
     }

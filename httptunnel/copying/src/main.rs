@@ -6,6 +6,7 @@ extern crate serde_derive;
 // > そして lib.rs の中で以下のようにmodで参照してあげれば使えます。
 // https://keens.github.io/blog/2018/12/08/rustnomoju_runotsukaikata_2018_editionhan/
 mod configuration;
+mod relay;
 
 // tokio: Tokio is an asynchronous runtime for the Rust programming language. It provides the building blocks needed for writing networking applications
 // https://tokio.rs/tokio/tutorial/hello-tokio
