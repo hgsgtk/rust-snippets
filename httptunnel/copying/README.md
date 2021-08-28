@@ -34,7 +34,3 @@ Hello, world!
 ```
 $ cargo run
 ```
-## HELP
-
-```
-
