@@ -1,11 +1,20 @@
 use crate::relay::{RelayPolicy};
 
 use clap::clap_app;
-use log::info;
+use log::{info, error};
 // rust-native-tls: An abstraction over platform-specific TLS implementations.
 // https://crates.io/crates/native-tls
 use native_tls::Identity;
 use regex::Regex;
+// A reference to an open file on the filesystem.
+// https://doc.rust-lang.org/std/fs/struct.File.html
+use std::fs::File;
+// Withoud Read, we got an compile errors.
+// Error: file.read_to_end(&mut identity).map_err(|e| { -> ^^^^^^^^^^^ method not found in `std::fs::File`
+// https://users.rust-lang.org/t/why-call-read-read-to-end-gives-method-not-found-but-io-copy-works/40021/9
+// To solve it, we should use Read trait `use std::io::Read;`
+// https://qiita.com/fujitayy/items/12a80560a356607da637
+use std::io::{Error, ErrorKind, Read};
 // A Duration type to represent a span of time, typically used for system timeouts.
 // https://doc.rust-lang.org/stable/std/time/struct.Duration.html
 use std::time::Duration;
@@ -101,31 +110,32 @@ impl ProxyConfiguration {
         // Crate clap: clap is a simple-to-use, efficient, and full-featured library for parsing command line arguments and subcommands when writing console/terminal applications.
         // https://docs.rs/clap/2.22.2/clap/index.html
         // clap_app! macro https://github.com/clap-rs/clap/issues/1347
-        /**
--> % ./target/debug/copying --help
-Copied simple HTTP(S) Tunnel 0.0.1
-
-Kazuki Higashiguchi
-
-A simple HTTP(S) tunnel
-
-USAGE:
-    copying [OPTIONS] --bind <BIND> [SUBCOMMAND]
-
-FLAGS:
-    -h, --help       Print help information
-    -V, --version    Print version information
-
-OPTIONS:
-        --bind <BIND>        Bind address, e.g. 0.0.0.0:8443
-        --config <CONFIG>    Configuration file
-
-SUBCOMMANDS:
-    help     Print this message or the help of the given subcommand(s)
-    http     Run the tunnel in HTTP mode
-    https    Run the tunnel in HTTPS mode
-    tcp      Run the tunnel in TCP proxy mode
-        */
+        //         $ ./target/debug/copying --help
+        // 
+        // ==================================
+        // Copied simple HTTP(S) Tunnel 0.0.1
+        //
+        // Kazuki Higashiguchi
+        //
+        // A simple HTTP(S) tunnel
+        //
+        // USAGE:
+        //      copying [OPTIONS] --bind <BIND> [SUBCOMMAND]
+        //
+        // FLAGS:
+        //      -h, --help       Print help information
+        //      -V, --version    Print version information
+        //
+        // OPTIONS:
+        //      --bind <BIND>        Bind address, e.g. 0.0.0.0:8443
+        //      --config <CONFIG>    Configuration file
+        //
+        // SUBCOMMANDS:
+        //      help     Print this message or the help of the given subcommand(s)
+        //      http     Run the tunnel in HTTP mode
+        //      https    Run the tunnel in HTTPS mode
+        //      tcp      Run the tunnel in TCP proxy mode
+        // ==================================
         let matches = clap_app!(myapp => 
             (name: "Copied simple HTTP(S) Tunnel")
             (version: "0.0.1")
@@ -216,32 +226,19 @@ SUBCOMMANDS:
             // https://doc.rust-lang.org/std/macro.unreachable.html
             // I send nits improvement PR :) https://github.com/xnuter/http-tunnel/pull/8 .
             unreachable!("only http, https and tcp commands are supported")
-        }
+        };
 
-        // TODO: create tunnel default config
-        // Fixme: fake it!
-        let tunnel_config = TunnelConfig {
-            client_connection: ClientConnectionConfig {
-                // ex. Duration::new(10, 0) means 10 seconds
-                // https://doc.rust-lang.org/stable/std/time/struct.Duration.html
-                initiation_timeout: Duration::new(10, 0)
-                relay_policy: RelayPolicy {
-                    idle_timeout: Duration::new(30, 0),
-                    min_rate_bpm: 1000,
-                    max_rate_bpm: 10000,
-                }
-            },
-            target_connection: TargetConnectionConfig {
-                dns_cache_ttl: Duration::new(60, 0),
-                allowed_targets: "^(?i)([a-z]+)\\.(wikipedia|rust-lang)\\.org:443$",
-                connect_timeout: Duration::new(10, 0)
-                relay_policy: RelayPolicy {
-                    idle_timeout: Duration::new(30, 0),
-                    min_rate_bpm: 1000,
-                    max_rate_bpm: 10000,
-                }
-            }
-        }
+        // The match Control Flow Operator
+        // https://doc.rust-lang.org/book/ch06-02-match.html
+        let tunnel_config = match config {
+            // TODO: add default configuration
+            None => TunnelConfig{}, 
+            Some(config) => ProxyConfiguration::read_tunnel_config(config)?,
+            // Without no None, the following error occured.
+            // > error[E0004]: non-exhaustive patterns: `None` not covered
+            // Just `None`, got following error
+            // > error: struct literals are not allowed here
+        };
         
         // derive_builder allows us to build structs Builder pattern.
         // https://docs.rs/derive_builder/0.10.2/derive_builder/#builder-patterns
@@ -258,13 +255,91 @@ SUBCOMMANDS:
     }
 
 
+    // Result<T,E> is for handling recoverable error
+    // https://doc.rust-lang.org/std/result/enum.Result.html
+    // https://speakerdeck.com/tanden/phpdethrowsinaili-wai-handoringu?slide=29
+    // std::io::Result; A specialized Result type for I/O operations.
+    // https://doc.rust-lang.org/std/io/type.Result.html
     fn tls_identify_from_file(filename: &str, password: &str) -> io::Result<Identity> {
-        // TODO: get identiry from file
+        // open -> Result<File>
+        // https://doc.rust-lang.org/std/fs/struct.File.html#method.open
+        // map_err: 
+        // https://doc.rust-lang.org/std/result/enum.Result.html#method.map_err
+        // mut keyword: JP 変数宣言のmutable
+        // https://qiita.com/hiro4669/items/1eea8c6443e7b533ea03
+        // ?; A Shortcut for Propagating Errors: the ? Operator
+        // The ? operator eliminates a lot of boilerplate and makes this function’s implementation simpler.
+        // https://doc.rust-lang.org/book/ch09-02-recoverable-errors-with-result.html#a-shortcut-for-propagating-errors-the--operator
+        let mut file = File::open(filename).map_err(|e| {
+            error!("Error opening PKSC12 file {}: {}", filename, e);
+            e
+        })?;
 
-        // Fixme: fake it
-        // Instantiate struct
+        // The vec! macro is provided to make initialization more convenient:
+        // https://doc.rust-lang.org/std/vec/struct.Vec.html
+        let mut identity = vec![];
+
+        // read_to_end: Read all bytes until EOF in this source, placing them into buf
+        // https://doc.rust-lang.org/std/io/trait.Read.html#method.read_to_end
+        //
+        // &mut: it becomes a mutable reference and can be written.
+        // https://qiita.com/cactaceae/items/2c70a9947364c60ec100
+        file.read_to_end(&mut identity).map_err(|e| {
+            error!("Error reading file {}: {}", filename, e);
+            e
+        })?;
+
+        Identity::from_pkcs12(&identity, &password).map_err(|e| {
+            error!("Cannot process PKCS12 file {}: {}", filename, e);
+            // ErrorKind: A list specifying general categories of I/O error.
+            // InvalidInput: A parameter was incorrect.
+            // https://doc.rust-lang.org/std/io/enum.ErrorKind.html
+            Error::from(ErrorKind::InvalidInput)
+        })
+    }
+
+    fn read_tunnel_config(filename: &str) -> io::Result<TunnelConfig> {
+        let mut file = File::open(filename).map_err(|e| {
+            error!("Error opening config file {}: {}", filename, e);
+            e
+        })?;
+
+        let mut yaml = vec![];
+
+        file.read_to_end(&mut yaml).map_err(|e| {
+            error!("Error reading file {}: {}", filename, e);
+            e
+        })?;
+
+        let result: TunnelConfig = serde_yaml::from_slice(&yaml).map_err(|e| {
+            error!("Error parsing yaml {}: {}", filename, e);
+            Error::from(ErrorKind::InvalidInput)
+        })?;
+
+        // Fake it
         // https://doc.rust-jp.rs/book-ja/ch05-01-defining-structs.html
-        // TODO: initialize Identity
+        // let tunnel_config = TunnelConfig {
+        //     client_connection: ClientConnectionConfig {
+        //         // ex. Duration::new(10, 0) means 10 seconds
+        //         // https://doc.rust-lang.org/stable/std/time/struct.Duration.html
+        //         initiation_timeout: Duration::new(10, 0)
+        //         relay_policy: RelayPolicy {
+        //             idle_timeout: Duration::new(30, 0),
+        //             min_rate_bpm: 1000,
+        //             max_rate_bpm: 10000,
+        //         }
+        //     },
+        //     target_connection: TargetConnectionConfig {
+        //         dns_cache_ttl: Duration::new(60, 0),
+        //         allowed_targets: "^(?i)([a-z]+)\\.(wikipedia|rust-lang)\\.org:443$",
+        //         connect_timeout: Duration::new(10, 0)
+        //         relay_policy: RelayPolicy {
+        //             idle_timeout: Duration::new(30, 0),
+        //             min_rate_bpm: 1000,
+        //             max_rate_bpm: 10000,
+        //         }
+        //     }
+        // }
         Ok(result)
     }
 }
