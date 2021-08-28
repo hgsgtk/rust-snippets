@@ -11,6 +11,7 @@ mod relay;
 // tokio: Tokio is an asynchronous runtime for the Rust programming language. It provides the building blocks needed for writing networking applications
 // https://tokio.rs/tokio/tutorial/hello-tokio
 use tokio::io;
+use tokio::net::TcpListener;
 
 // TODO: solve compile error
 // could not find `configuration` in the crate root
@@ -19,7 +20,7 @@ use crate::configuration::{ProxyConfiguration};
 
 // log: A lightweight logging facade for Rust
 // https://crates.io/crates/log
-use log::{LevelFilter};
+use log::{error, info, LevelFilter};
 use log4rs::append::console::ConsoleAppender;
 use log4rs::config::{Appender, Root};
 use log4rs::Config;
@@ -35,6 +36,22 @@ pub async fn main() -> io::Result<()> {
     // Tips for deadcode
     // > warning: unused variable: `proxy_configuration`
     // > help: if this is intentional, prefix it with an underscore: `_proxy_configuration`
+
+    info!("Starting listener on : {}", proxy_configuration.bind_address);
+
+    // TcpListener: An I/O object representing a TCP socket listening for incoming connections.
+    // https://docs.rs/tokio/0.1.22/tokio/net/struct.TcpListener.html
+    let mut tcp_listener = TcpListener::bind(&proxy_configuration.bind_address)
+        .await
+        .map_err(|e| {
+            error!(
+                "Error binding address {} {}",
+                &proxy_configuration.bind_address, e
+            );
+            e
+        })?;
+
+    info!("Proxy stopped");
 
     // Contains the success value
     // https://doc.rust-lang.org/std/result/enum.Result.html#variant.Ok
