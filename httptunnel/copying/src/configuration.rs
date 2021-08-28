@@ -1,4 +1,4 @@
-use crate::relay::{RelayPolicy};
+use crate::relay::{RelayPolicy, NO_BANDWIDTH_LIMIT, NO_TIMEOUT};
 
 use clap::clap_app;
 use log::{info, error};
@@ -100,6 +100,34 @@ pub struct ProxyConfiguration {
     pub mode: ProxyMode,
     pub bind_address: String,
     pub tunnel_config: TunnelConfig,
+}
+
+// Implement some functionality for a type.
+impl Default for TunnelConfig {
+    fn default() -> Self {
+        // Self is not same as self.
+        // https://doc.rust-lang.org/std/keyword.self.html
+        Self {
+            client_connection: ClientConnectionConfig {
+                initiation_timeout: NO_TIMEOUT,
+                relay_policy: RelayPolicy {
+                    idle_timeout: NO_TIMEOUT,
+                    min_rate_bpm: 0,
+                    max_rate_bpm: NO_BANDWIDTH_LIMIT,
+                },
+            },
+            target_connection: TargetConnectionConfig {
+                dns_cache_ttl: NO_TIMEOUT,
+                allowed_targets: Regex::new(".*").expect("Bug: bad default regexp"),
+                connect_timeout: NO_TIMEOUT,
+                relay_policy: RelayPolicy {
+                    idle_timeout: NO_TIMEOUT,
+                    min_rate_bpm: 0,
+                    max_rate_bpm: NO_BANDWIDTH_LIMIT,
+                },
+            },
+        }
+    }
 }
 
 // impl keyword
@@ -232,7 +260,7 @@ impl ProxyConfiguration {
         // https://doc.rust-lang.org/book/ch06-02-match.html
         let tunnel_config = match config {
             // TODO: add default configuration
-            None => TunnelConfig{}, 
+            None => TunnelConfig::default(), 
             Some(config) => ProxyConfiguration::read_tunnel_config(config)?,
             // Without no None, the following error occured.
             // > error[E0004]: non-exhaustive patterns: `None` not covered
