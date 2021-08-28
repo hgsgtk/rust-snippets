@@ -19,11 +19,11 @@ use tokio::net::TcpListener;
 
 /// Without `mod {filename}`, we got an error: could not find `configuration` in the crate root
 use crate::configuration::{ProxyConfiguration, ProxyMode};
-use crate::proxy_target::SimpleCachingDnsResolver;
+use crate::proxy_target::{SimpleCachingDnsResolver, SimpleTcpConnector};
 use crate::tunnel::{
     TunnelCtxBuilder
 };
-use crate::http_tunnel_codec::{HttpTunnelCodec, HttpTunnelCodecBuilder};
+use crate::http_tunnel_codec::{HttpTunnelCodec, HttpTunnelCodecBuilder, HttpTunnelTarget};
 
 /// log: A lightweight logging facade for Rust
 /// https://crates.io/crates/log
@@ -250,6 +250,12 @@ async fn tunnel_stream<C: AsyncRead + AsyncWrite + Send + Unpin + 'static>(
         )
         .build()
         .expect("HttpTunnelCodecBuilder failed");
+    
+    let connector: SimpleTcpConnector<HttpTunnelTarget, DnsResolver> = SimpleTcpConnector::new(
+        dns_resolver,
+        config.tunnel_config.target_connection.connect_timeout,
+        ctx,
+    );
 
     Ok(())
 }
