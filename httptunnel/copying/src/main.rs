@@ -7,16 +7,16 @@ extern crate serde_derive;
 // https://keens.github.io/blog/2018/12/08/rustnomoju_runotsukaikata_2018_editionhan/
 mod configuration;
 mod relay;
+mod proxy_target;
 
 // tokio: Tokio is an asynchronous runtime for the Rust programming language. It provides the building blocks needed for writing networking applications
 // https://tokio.rs/tokio/tutorial/hello-tokio
 use tokio::io;
 use tokio::net::TcpListener;
 
-// TODO: solve compile error
-// could not find `configuration` in the crate root
+// Without `mod {filename}`, we got an error: could not find `configuration` in the crate root
 use crate::configuration::{ProxyConfiguration};
-
+use crate::proxy_target::SimpleCachingDnsResolver;
 
 // log: A lightweight logging facade for Rust
 // https://crates.io/crates/log
@@ -50,6 +50,13 @@ pub async fn main() -> io::Result<()> {
             );
             e
         })?;
+
+    let dns_resolver = SimpleCachingDnsResolver::new(
+        proxy_configuration
+            .tunnel_config
+            .target_connection
+            .dns_cache_ttl,
+    );
 
     info!("Proxy stopped");
 
