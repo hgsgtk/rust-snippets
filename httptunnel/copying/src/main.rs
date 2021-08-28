@@ -12,10 +12,11 @@ mod proxy_target;
 // tokio: Tokio is an asynchronous runtime for the Rust programming language. It provides the building blocks needed for writing networking applications
 // https://tokio.rs/tokio/tutorial/hello-tokio
 use tokio::io;
+use tokio::io::{AsyncRead, AsyncWrite};
 use tokio::net::TcpListener;
 
 // Without `mod {filename}`, we got an error: could not find `configuration` in the crate root
-use crate::configuration::{ProxyConfiguration};
+use crate::configuration::{ProxyConfiguration, ProxyMode};
 use crate::proxy_target::SimpleCachingDnsResolver;
 
 // log: A lightweight logging facade for Rust
@@ -24,6 +25,10 @@ use log::{error, info, LevelFilter};
 use log4rs::append::console::ConsoleAppender;
 use log4rs::config::{Appender, Root};
 use log4rs::Config;
+
+// async fn tunnel_stream<C: AsyncRead + AsyncWrite + Send + Unpin + 'static>(
+
+type DnsResolver = SimpleCachingDnsResolver;
 
 #[tokio::main]
 pub async fn main() -> io::Result<()> {
@@ -57,6 +62,20 @@ pub async fn main() -> io::Result<()> {
             .target_connection
             .dns_cache_ttl,
     );
+
+    match &proxy_configuration.mode {
+        ProxyMode::HTTP => {
+            // about .await https://rust-lang.github.io/async-book/01_getting_started/04_async_await_primer.html
+            serve_plain_text(proxy_configuration, &mut tcp_listener, dns_resolver).await?;
+        }
+        // TODO: HOW to bind value to tls_identity?
+        ProxyMode::HTTPS(tls_identity) => {
+            // TODO: HTTPS        
+        }
+        ProxyMode::TCP(d) => {
+            // TODO: TCP
+        }
+    }
 
     info!("Proxy stopped");
 
@@ -101,4 +120,69 @@ fn init_logger() {
             .unwrap();
         log4rs::init_config(config).expect("Bug: bad default config");
     }
+}
+
+// The () type called unit.
+// > The () type has exactly one value (), and is used when there is no other meaningful value that could be returned. 
+// https://doc.rust-lang.org/std/primitive.unit.html
+async fn serve_plain_text(
+    config: ProxyConfiguration,
+    listener: &mut TcpListener,
+    dns_resolver: DnsResolver,
+) -> io::Result<()> {
+    info!("Serving requests on: {}", config.bind_address);
+    loop {
+        // pub async fn accept(&self) -> Result<(TcpStream, SocketAddr)>
+        // > Accepts a new incoming connection from this listener.
+        // TCP Handshake here.
+        // https://docs.rs/tokio/1.10.1/tokio/net/struct.TcpListener.html
+        let socket = listener.accept().await;
+
+        // Clone trait defines clone().
+        // A common trait for the ability to explicitly duplicate an object
+        // https://doc.rust-lang.org/std/clone/trait.Clone.html
+        let dns_resolver_ref = dns_resolver.clone();
+
+        match socket {
+            Ok((stream, _)) => {
+                // pub fn nodelay(&self) -> Result<bool>
+                // Gets the value of the TCP_NODELAY option on this socket.
+                // nodelay => disables the Nagle algorithm.
+                // https://doc.rust-lang.org/std/net/struct.TcpStream.html#method.nodelay
+                // Detail about Nagle algorithm at https://doc.rust-lang.org/std/net/struct.TcpStream.html#method.set_nodelay
+                //
+                // unwrap_or_default: Returns the contained Some value or a default
+                // https://doc.rust-lang.org/std/option/enum.Option.html#method.unwrap_or_default
+                stream.nodelay().unwrap_or_default();
+                let config = config.clone();
+                // handle accepted connnections asynchronously
+                //
+                // Function tokio::spawn: Spawns a new asynchronous task, returning a JoinHandle for it
+                // > Spawning a task enables the task to execute concurrently to other tasks
+                // https://docs.rs/tokio/0.2.2/tokio/fn.spawn.html
+                //
+                // Keyword `move` 
+                // https://doc.rust-lang.org/std/keyword.move.html
+                // > move converts any variables captured by reference or mutable reference to variables captured by value.
+                tokio::spawn(async move { tunnel_stream(&config, stream, dns_resolver_ref).await });
+            }
+            Err(e) => error!("Failed TCP handshake{}", e)
+        }
+    }
+}
+
+// TODO: what's this?
+// tokio::AsyncRead/AsyncWrite
+//
+// Send
+//
+// Unpin
+//
+// 'static
+async fn tunnel_stream<C: AsyncRead + AsyncWrite + Send + Unpin + 'static>(
+    config: &ProxyConfiguration,
+    client: C,
+    dns_resolver: DnsResolver,
+) -> io::Result<()> {
+    Ok(())
 }
