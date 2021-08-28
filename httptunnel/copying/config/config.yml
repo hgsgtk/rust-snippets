@@ -1,0 +1,15 @@
+client_connection:
+  initiation_timeout: 100s
+  relay_policy:
+    idle_timeout: 300s
+    min_rate_bpm: 0
+    max_rate_bpm: 10000000
+
+target_connection:
+  dns_cache_ttl: 60s
+  allowed_targets: ".*"
+  connect_timeout: 100s
+  relay_policy:
+    idle_timeout: 100s
+    min_rate_bpm: 0
+    max_rate_bpm: 10000000
