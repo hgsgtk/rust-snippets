@@ -8,6 +8,7 @@ extern crate serde_derive;
 mod configuration;
 mod relay;
 mod proxy_target;
+mod tunnel;
 
 // tokio: Tokio is an asynchronous runtime for the Rust programming language. It provides the building blocks needed for writing networking applications
 // https://tokio.rs/tokio/tutorial/hello-tokio
@@ -18,6 +19,9 @@ use tokio::net::TcpListener;
 // Without `mod {filename}`, we got an error: could not find `configuration` in the crate root
 use crate::configuration::{ProxyConfiguration, ProxyMode};
 use crate::proxy_target::SimpleCachingDnsResolver;
+use crate::tunnel::{
+    TunnelCtxBuilder
+};
 
 // log: A lightweight logging facade for Rust
 // https://crates.io/crates/log
@@ -25,6 +29,8 @@ use log::{error, info, LevelFilter};
 use log4rs::append::console::ConsoleAppender;
 use log4rs::config::{Appender, Root};
 use log4rs::Config;
+
+use rand::{thread_rng, Rng};
 
 // async fn tunnel_stream<C: AsyncRead + AsyncWrite + Send + Unpin + 'static>(
 
@@ -221,5 +227,15 @@ async fn tunnel_stream<C: AsyncRead + AsyncWrite + Send + Unpin + 'static>(
     client: C,
     dns_resolver: DnsResolver,
 ) -> io::Result<()> {
+    let ctx = TunnelCtxBuilder::default()
+        // thread_rng https://docs.rs/rand/0.6.2/rand/fn.thread_rng.html
+        // > Retrieve the lazily-initialized thread-local random number generator, seeded by the system
+        // performance benchmark https://qiita.com/hhatto/items/c1f311eb80280c26b7e8
+        // We got an error withdout Rng trait, because Rng trait defined get()
+        // > https://docs.rs/rand/0.5.0/rand/trait.Rng.html
+        .id(thread_rng().gen::<u128>())
+        .build()
+        .expect("TunnelCtxBuilder failed");
+
     Ok(())
 }

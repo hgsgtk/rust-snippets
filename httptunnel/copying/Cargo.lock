@@ -118,6 +118,7 @@ dependencies = [
  "log",
  "log4rs",
  "native-tls",
+ "rand",
  "regex",
  "serde",
  "serde_derive",
