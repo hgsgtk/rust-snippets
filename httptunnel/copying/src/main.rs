@@ -171,14 +171,51 @@ async fn serve_plain_text(
     }
 }
 
-// TODO: what's this?
-// tokio::AsyncRead/AsyncWrite
+// tokio::AsyncRead/AsyncWrite https://docs.rs/tokio/1.10.1/tokio/io/trait.AsyncWrite.html
+// Writes bytes asynchronously.
+// > The trait inherits from std::io::Write and indicates that an I/O object is nonblocking. 
+// > All non-blocking I/O objects must return an error when bytes cannot be written instead of blocking the current thread.
 //
-// Send
+// Send https://doc.rust-lang.org/std/marker/trait.Send.html
+// > This trait is automatically implemented when the compiler determines it’s appropriate.
+// https://doc.rust-lang.org/nomicon/send-and-sync.html
+// > A type is Send if it is safe to send it to another thread.
+// > A type is Sync if it is safe to share between threads (T is Sync if and only if &T is Send).
 //
-// Unpin
-//
+// Thread safe
+// https://ja.wikipedia.org/wiki/%E3%82%B9%E3%83%AC%E3%83%83%E3%83%89%E3%82%BB%E3%83%BC%E3%83%95
+// > - マルチスレッドプログラミングにおける概念
+// > - あるコードがスレッドセーフであるという場合、そのコードを複数のスレッドが同時並行的に実行しても問題が発生しないことを意味する
+// > - 特に、ある共有データへの複数のスレッドによるアクセスがあるとき、一度に1つのスレッドのみがその共有データにアクセスするようにして安全性を確保しなければならない
+// Related pricipal 驚き最小の原則 Principle of least astonishment / Rule of least surprise
+// > ユーザインタフェースやプログラミング言語の設計および人間工学において、
+// > インタフェースの2つの要素が互いに矛盾あるいは不明瞭だったときに、
+// > その動作としては人間のユーザやプログラマが最も自然に思える（驚きが少ない）ものを選択すべきだ
+// https://ja.wikipedia.org/wiki/%E9%A9%9A%E3%81%8D%E6%9C%80%E5%B0%8F%E3%81%AE%E5%8E%9F%E5%89%87
+// 
+// Unpin https://doc.rust-lang.org/std/marker/trait.Unpin.html
+// Types that can be safely moved after being pinned.
+// The Pin type is used instead to prevent moves through the type system. 
+// Related module: std::pin: Types that pin data to its location in memory
+// https://doc.rust-lang.org/std/pin/index.html
+// JA RustのPinチョットワカル https://tech-blog.optim.co.jp/entry/2020/03/05/160000
+// > このUnpinトレイトは自動トレイト*1として宣言されており、基本的にはあらゆる型に実装されます。 
+// > それもそのはず、普通にコードを書いていて「ムーブしたら絶対アカン😡型」なんてものは出てこないからです。
+// 
 // 'static
+// > As a reference lifetime 'static indicates that the data pointed to by the reference lives for the entire lifetime of the running program.
+// > It can still be coerced to a shorter lifetime.
+// https://doc.rust-lang.org/rust-by-example/scope/lifetime/static_lifetime.html
+// In this case, it's trait bound.
+// > As a trait bound, it means the type does not contain any non-static references.
+//
+// Trait object
+// > A trait object is an opaque value of another type that implements a set of traits.
+// > Trait objects implement the base trait, its auto traits, and any super traits of the base trait.
+// > Trait objects are written as the path to the base trait followed by the list of auto traits
+// >  followed optionally by a lifetime bound all separated by +.
+// ex. Trait, Trait + Send, Trait + Send + Sync, Trait + 'static ...etc
+// http://web.mit.edu/rust-lang_v1.25/arch/amd64_ubuntu1404/share/doc/rust/html/reference/types.html#trait-objects
 async fn tunnel_stream<C: AsyncRead + AsyncWrite + Send + Unpin + 'static>(
     config: &ProxyConfiguration,
     client: C,
