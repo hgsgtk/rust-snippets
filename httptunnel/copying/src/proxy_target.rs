@@ -1,5 +1,5 @@
-// About Comments -> INNER_LINE_DOC -> //! ~[\n IsolatedCR]*
-// https://doc.rust-lang.org/reference/comments.html
+/// About Comments -> INNER_LINE_DOC -> //! ~[\n IsolatedCR]*
+/// https://doc.rust-lang.org/reference/comments.html
 
 use std::collections::HashMap;
 use std::net::SocketAddr;
@@ -8,23 +8,23 @@ use std::time::Instant;
 use tokio::time::Duration;
 use tokio::sync::RwLock;
 
-// Vec https://doc.rust-lang.org/std/vec/struct.Vec.html
-// A measurement of a monotonically increasing clock.
-// u128: The 128-bit unsigned integer type. https://doc.rust-lang.org/std/primitive.u128.html
+/// Vec https://doc.rust-lang.org/std/vec/struct.Vec.html
+/// A measurement of a monotonically increasing clock.
+/// u128: The 128-bit unsigned integer type. https://doc.rust-lang.org/std/primitive.u128.html
 //
-// SocketAddr is a enum which represents an internal socket address, either IPv4 or IPv6.
-// https://doc.rust-lang.org/std/net/enum.SocketAddr.html
+/// SocketAddr is a enum which represents an internal socket address, either IPv4 or IPv6.
+/// https://doc.rust-lang.org/std/net/enum.SocketAddr.html
 type CachedSocketAddrs = (Vec<SocketAddr>, u128);
 
-// (Original comment)
-// Caching DNS resolution to minimize DNS look-ups.
-// The cache has relaxed consistency, it allows concurrncy DNS look-ups of the same key,
-// without any guarantees which result is going to be cached.
+/// (Original comment)
+/// Caching DNS resolution to minimize DNS look-ups.
+/// The cache has relaxed consistency, it allows concurrncy DNS look-ups of the same key,
+/// without any guarantees which result is going to be cached.
 //
-// Given it's used for DNS look-ups this trade-off seems to be reasonable.
-// 
-// (My comment)
-// TODO: I didn't understand it.
+/// Given it's used for DNS look-ups this trade-off seems to be reasonable.
+/// 
+/// (My comment)
+/// TODO: I didn't understand it.
 #[derive(Clone)]
 pub struct SimpleCachingDnsResolver {
     // Arc: A thread-safe reference-counting pointer. ‘Arc’ stands for ‘Atomically Reference Counted’.

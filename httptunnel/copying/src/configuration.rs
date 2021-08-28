@@ -2,28 +2,28 @@ use crate::relay::{RelayPolicy, NO_BANDWIDTH_LIMIT, NO_TIMEOUT};
 
 use clap::clap_app;
 use log::{info, error};
-// rust-native-tls: An abstraction over platform-specific TLS implementations.
-// https://crates.io/crates/native-tls
+/// rust-native-tls: An abstraction over platform-specific TLS implementations.
+/// https://crates.io/crates/native-tls
 use native_tls::Identity;
 use regex::Regex;
-// A reference to an open file on the filesystem.
-// https://doc.rust-lang.org/std/fs/struct.File.html
+/// A reference to an open file on the filesystem.
+/// https://doc.rust-lang.org/std/fs/struct.File.html
 use std::fs::File;
-// Withoud Read, we got an compile errors.
-// Error: file.read_to_end(&mut identity).map_err(|e| { -> ^^^^^^^^^^^ method not found in `std::fs::File`
-// https://users.rust-lang.org/t/why-call-read-read-to-end-gives-method-not-found-but-io-copy-works/40021/9
-// To solve it, we should use Read trait `use std::io::Read;`
-// https://qiita.com/fujitayy/items/12a80560a356607da637
+/// Withoud Read, we got an compile errors.
+/// Error: file.read_to_end(&mut identity).map_err(|e| { -> ^^^^^^^^^^^ method not found in `std::fs::File`
+/// https://users.rust-lang.org/t/why-call-read-read-to-end-gives-method-not-found-but-io-copy-works/40021/9
+/// To solve it, we should use Read trait `use std::io::Read;`
+/// https://qiita.com/fujitayy/items/12a80560a356607da637
 use std::io::{Error, ErrorKind, Read};
-// A Duration type to represent a span of time, typically used for system timeouts.
-// https://doc.rust-lang.org/stable/std/time/struct.Duration.html
+/// A Duration type to represent a span of time, typically used for system timeouts.
+/// https://doc.rust-lang.org/stable/std/time/struct.Duration.html
 use std::time::Duration;
 use tokio::io;
 
-// Attribute: #[attribute(value)]
-// https://doc.rust-lang.org/rust-by-example/attribute.html
-// Enum JA: 列挙型
-// https://doc.rust-jp.rs/rust-by-example-ja/custom_types/enum.html
+/// Attribute: #[attribute(value)]
+/// https://doc.rust-lang.org/rust-by-example/attribute.html
+/// Enum JA: 列挙型
+/// https://doc.rust-jp.rs/rust-by-example-ja/custom_types/enum.html
 #[derive(Clone)]
 pub enum ProxyMode {
     HTTP,
@@ -74,27 +74,27 @@ pub struct TargetConnectionConfig {
     pub relay_policy: RelayPolicy,
 }
 
-// serde::Deserialize
-// https://dev.classmethod.jp/articles/rust-serde-getting-started/
+/// serde::Deserialize
+/// https://dev.classmethod.jp/articles/rust-serde-getting-started/
 #[derive(Deserialize, Clone)]
 pub struct TunnelConfig {
     pub client_connection: ClientConnectionConfig,
     pub target_connection: TargetConnectionConfig,
 }
 
-// JA: コンパイラには、[#derive]アトリビュートを用いることで型に対して特定のトレイトの標準的な実装を提供する機能があります。
-// https://doc.rust-jp.rs/rust-by-example-ja/trait/derive.html
-// Clone: JA これはコピーによって&TからTを作成するトレイト
-// https://doc.rust-lang.org/std/clone/trait.Clone.html
-// create derive_builder;
-// builder setters automatically
-// https://docs.rs/derive_builder/0.10.2/derive_builder/
-// struct
-// JP: 構造体
-// - タプル。（ほとんどの場合は名前付きタプル）
-// - クラシックなC言語スタイルの構造体。 <- Y
-// - ユニット。これはフィールドを持たず、ジェネリック型を扱う際に有効です。
-// https://doc.rust-jp.rs/rust-by-example-ja/custom_types/structs.html
+/// JA: コンパイラには、[#derive]アトリビュートを用いることで型に対して特定のトレイトの標準的な実装を提供する機能があります。
+/// https://doc.rust-jp.rs/rust-by-example-ja/trait/derive.html
+/// Clone: JA これはコピーによって&TからTを作成するトレイト
+/// https://doc.rust-lang.org/std/clone/trait.Clone.html
+/// create derive_builder;
+/// builder setters automatically
+/// https://docs.rs/derive_builder/0.10.2/derive_builder/
+/// struct
+/// JP: 構造体
+/// - タプル。（ほとんどの場合は名前付きタプル）
+/// - クラシックなC言語スタイルの構造体。 <- Y
+/// - ユニット。これはフィールドを持たず、ジェネリック型を扱う際に有効です。
+/// https://doc.rust-jp.rs/rust-by-example-ja/custom_types/structs.html
 #[derive(Clone, Builder)]
 pub struct ProxyConfiguration {
     pub mode: ProxyMode,
@@ -102,7 +102,7 @@ pub struct ProxyConfiguration {
     pub tunnel_config: TunnelConfig,
 }
 
-// Implement some functionality for a type.
+/// Implement some functionality for a type.
 impl Default for TunnelConfig {
     fn default() -> Self {
         // Self is not same as self.
@@ -130,9 +130,9 @@ impl Default for TunnelConfig {
     }
 }
 
-// impl keyword
-// Implement some functionality for a type.
-// https://doc.rust-lang.org/std/keyword.impl.html
+/// impl keyword
+/// Implement some functionality for a type.
+/// https://doc.rust-lang.org/std/keyword.impl.html
 impl ProxyConfiguration {
     pub fn from_command_line() -> io::Result<ProxyConfiguration> {
         // Crate clap: clap is a simple-to-use, efficient, and full-featured library for parsing command line arguments and subcommands when writing console/terminal applications.
@@ -283,11 +283,11 @@ impl ProxyConfiguration {
     }
 
 
-    // Result<T,E> is for handling recoverable error
-    // https://doc.rust-lang.org/std/result/enum.Result.html
-    // https://speakerdeck.com/tanden/phpdethrowsinaili-wai-handoringu?slide=29
-    // std::io::Result; A specialized Result type for I/O operations.
-    // https://doc.rust-lang.org/std/io/type.Result.html
+    /// Result<T,E> is for handling recoverable error
+    /// https://doc.rust-lang.org/std/result/enum.Result.html
+    /// https://speakerdeck.com/tanden/phpdethrowsinaili-wai-handoringu?slide=29
+    /// std::io::Result; A specialized Result type for I/O operations.
+    /// https://doc.rust-lang.org/std/io/type.Result.html
     fn tls_identify_from_file(filename: &str, password: &str) -> io::Result<Identity> {
         // open -> Result<File>
         // https://doc.rust-lang.org/std/fs/struct.File.html#method.open
