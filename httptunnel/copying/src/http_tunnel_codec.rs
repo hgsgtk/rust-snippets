@@ -1,6 +1,6 @@
 use regex::Regex;
 
-use crate::tunnel::{TunnelCtx}
+use crate::tunnel::{TunnelCtx};
 
 /// Codec to extract `HTTP/1.1 CONNECT` requests and build a corresponding `HTTP` response.
 /// Codec means 符号化方式を使ってデータのエンコード（符号化）とデコード（復号）を双方向にできる装置やソフトウェア.

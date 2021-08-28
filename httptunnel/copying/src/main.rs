@@ -9,6 +9,7 @@ mod configuration;
 mod relay;
 mod proxy_target;
 mod tunnel;
+mod http_tunnel_codec;
 
 /// tokio: Tokio is an asynchronous runtime for the Rust programming language. It provides the building blocks needed for writing networking applications
 /// https://tokio.rs/tokio/tutorial/hello-tokio
@@ -22,6 +23,7 @@ use crate::proxy_target::SimpleCachingDnsResolver;
 use crate::tunnel::{
     TunnelCtxBuilder
 };
+use crate::http_tunnel_codec::{HttpTunnelCodec, HttpTunnelCodecBuilder};
 
 /// log: A lightweight logging facade for Rust
 /// https://crates.io/crates/log
@@ -237,7 +239,17 @@ async fn tunnel_stream<C: AsyncRead + AsyncWrite + Send + Unpin + 'static>(
         .build()
         .expect("TunnelCtxBuilder failed");
 
-    
+    let codec: HttpTunnelCodec = HttpTunnelCodecBuilder::default()
+        .tunnel_ctx(ctx)
+        .enabled_targets(
+            config 
+                .tunnel_config
+                .target_connection
+                .allowed_targets
+                .clone(),
+        )
+        .build()
+        .expect("HttpTunnelCodecBuilder failed");
 
     Ok(())
 }
