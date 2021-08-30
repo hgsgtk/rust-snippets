@@ -21,7 +21,7 @@ use tokio::net::TcpListener;
 use crate::configuration::{ProxyConfiguration, ProxyMode};
 use crate::proxy_target::{SimpleCachingDnsResolver, SimpleTcpConnector};
 use crate::tunnel::{
-    TunnelCtxBuilder
+    TunnelCtxBuilder, ConnectionTunnel, TunnelCtx,
 };
 use crate::http_tunnel_codec::{HttpTunnelCodec, HttpTunnelCodecBuilder, HttpTunnelTarget};
 
@@ -257,7 +257,11 @@ async fn tunnel_stream<C: AsyncRead + AsyncWrite + Send + Unpin + 'static>(
         ctx,
     );
 
-    // TODO: implement ConnectionTunnel
+    let stats = ConnectionTunnel::new(codec, connector, client, config.tunnel_config.clone(), ctx);
+        // .start() TODO: server start!
+        // .await;
+
+    // TODO: report tunnel metrix
 
     Ok(())
 }

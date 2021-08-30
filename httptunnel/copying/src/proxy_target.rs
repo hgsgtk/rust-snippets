@@ -1,7 +1,7 @@
 /// About Comments -> INNER_LINE_DOC -> //! ~[\n IsolatedCR]*
 /// https://doc.rust-lang.org/reference/comments.html
 
-use crate::tunnel::{TunnelCtx};
+use crate::tunnel::{TunnelCtx, TunnelTarget};
 
 use async_trait::async_trait;
 use log::{debug, error, info};
@@ -13,8 +13,9 @@ use std::net::SocketAddr;
 use std::sync::Arc;
 use std::time::Instant;
 use tokio::io;
-use tokio::io::{Error, ErrorKind};
-use tokio::time::Duration;
+use tokio::io::{Error, ErrorKind, AsyncRead, AsyncWriteExt, AsyncWrite};
+use tokio::net::TcpStream;
+use tokio::time::{Duration, timeout};
 use tokio::sync::RwLock;
 
 /// Vec https://doc.rust-lang.org/std/vec/struct.Vec.html
@@ -187,8 +188,86 @@ where
     }
 }
 
+#[async_trait]
+impl<D, R> TargetConnector for SimpleTcpConnector<D, R>
+where
+    D: TunnelTarget<Addr = String> + Send + Sync + Sized,
+    R: DnsResolver + Send + Sync + 'static,
+{
+    type Target = D;
+    // tokio::net::TcpStream An I/O object representing a TCP stream connected to a remote endpoint.
+    // https://docs.rs/tokio/0.1.12/tokio/net/struct.TcpStream.html
+    type Stream = TcpStream;
+
+    async fn connect(&mut self, target: &Self::Target) -> io::Result<Self::Stream> {
+        let target_addr = &target.target_addr();
+
+        let addr = self.dns_resolver.resolve(target_addr).await?;
+
+        // tokio::time::timeout 
+        // https://docs.rs/tokio/0.2.6/tokio/time/fn.timeout.html
+        if let Ok(tcp_stream) = timeout(self.connect_timeout, TcpStream::connect(addr)).await {
+            let mut stream = tcp_stream?;
+            // Gets the value of the TCP_NODELAY option on this socket.
+            // https://docs.rs/tokio/0.2.6/tokio/net/struct.TcpStream.html#method.nodelay
+            stream.nodelay()?;
+
+            if target.has_nugget() {
+                if let Ok(written_successfully) = timeout(
+                    self.connect_timeout,
+                    // AsyncWriteExt 
+                    // > Implemented as an extention trait, adding utility methods to all AsyncWrite types. 
+                    // > Callers will tend to import this trait instead of AsyncWrite.
+                    // It provides write_all() method
+                    // https://docs.rs/tokio/0.2.6/tokio/io/trait.AsyncWriteExt.html
+                    stream.write_all(&target.nugget().data()),
+                )
+                .await
+                {
+                    written_successfully?;
+                } else {
+                    error!(
+                        "Timeout sending nugget to {}, {}, CTX={}",
+                        addr, target_addr, self.tunnel_ctx
+                    );
+                    return Err(Error::from(ErrorKind::TimedOut));
+                }
+            }
+            Ok(stream)
+        } else {
+            error!(
+                "Timeout connection to {}, {}, CTX={}",
+                addr, target_addr, self.tunnel_ctx
+            );
+            Err(Error::from(ErrorKind::TimedOut))
+        }
+    }
+}
+
 // TODO: What's nugget?
 #[derive(Eq, PartialEq, Debug, Clone)]
 pub struct Nugget {
     data: Arc<Vec<u8>>,
+}
+
+impl Nugget {
+    // Into<変換先> 
+    // https://qiita.com/hadashiA/items/d0c34a4ba74564337d2f
+    pub fn new<T: Into<Vec<u8>>>(v: T) -> Self {
+        Self {
+            data: Arc::new(v.into()),
+        }
+    }
+
+    pub fn data(&self) -> Arc<Vec<u8>> {
+        self.data.clone()
+    }
+}
+
+#[async_trait]
+pub trait TargetConnector {
+    type Target: TunnelTarget + Send + Sync + Sized;
+    type Stream: AsyncRead + AsyncWrite + Send + Sized + 'static;
+
+    async fn connect(&mut self, target: &Self::Target) -> io::Result<Self::Stream>;
 }
