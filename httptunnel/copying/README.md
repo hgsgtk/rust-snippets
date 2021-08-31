@@ -3,6 +3,14 @@
 ref: https://github.com/xnuter/http-tunnel
 ref: https://medium.com/swlh/writing-a-modern-http-s-tunnel-in-rust-56e70d898700
 
+- http mode
+
+```
+./target/debug/copying --config ./config/config.yml --bind 0.0.0.0:8443 http
+```
+
+# Refs
+
 ## Initialize cargo app
 
 - new package

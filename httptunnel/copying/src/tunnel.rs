@@ -173,7 +173,8 @@ where
             });
         }
 
-        // upwrap 
+        // upwrap Returns the contained Ok value, consuming the self value.
+        // https://doc.rust-lang.org/std/result/enum.Result.html#method.unwrap
         let (client, target) = tunnel_result.unwrap();
         relay_connections(
             client,

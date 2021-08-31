@@ -21,7 +21,7 @@ use tokio::net::TcpListener;
 use crate::configuration::{ProxyConfiguration, ProxyMode};
 use crate::proxy_target::{SimpleCachingDnsResolver, SimpleTcpConnector};
 use crate::tunnel::{
-    TunnelCtxBuilder, ConnectionTunnel, TunnelCtx,
+    TunnelCtxBuilder, ConnectionTunnel, TunnelCtx, TunnelStats,
 };
 use crate::http_tunnel_codec::{HttpTunnelCodec, HttpTunnelCodecBuilder, HttpTunnelTarget};
 
@@ -257,11 +257,24 @@ async fn tunnel_stream<C: AsyncRead + AsyncWrite + Send + Unpin + 'static>(
         ctx,
     );
 
-    let stats = ConnectionTunnel::new(codec, connector, client, config.tunnel_config.clone(), ctx);
-        // .start() TODO: server start!
-        // .await;
+    let stats = ConnectionTunnel::new(codec, connector, client, config.tunnel_config.clone(), ctx)
+        .start()
+        .await;
 
-    // TODO: report tunnel metrix
+    report_tunnel_metrics(ctx, stats);
 
     Ok(())
+}
+
+/// (Original comments)
+/// Placeholder for proper metrics emission.
+/// Here we just write to a file without any aggregation.
+fn report_tunnel_metrics(ctx: TunnelCtx, stats: io::Result<TunnelStats>) {
+    match stats {
+        Ok(s) => {
+            info!(target: "metrics", "{}", serde_json::to_string(&s).expect("JSON serializtion failed"))
+        }
+        // What's TID
+        Err(_) => error!("Failed to get stats for TID={}", ctx),
+    }
 }
