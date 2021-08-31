@@ -2,18 +2,34 @@ use async_trait::async_trait;
 
 use crate::configuration::TunnelConfig;
 use crate::proxy_target::{Nugget, TargetConnector};
+use crate::relay::{RelayStats, RelayPolicy, Relay, RelayBuilder};
 
 use core::fmt;
-
+use futures::{StreamExt, SinkExt};
+use futures::stream::SplitStream;
+use log::{debug, error};
 use std::fmt::Display;
+use std::time::Duration;
+use tokio::io;
 use tokio::io::{AsyncRead, AsyncWrite};
-use tokio_util::codec::{Decoder, Encoder};
+use tokio::time::timeout;
+use tokio_util::codec::{Decoder, Encoder, Framed};
 
 /// trait std::default::Default https://doc.rust-lang.org/std/default/trait.Default.html
 /// A trait for giving a type a useful default value
 #[derive(Builder, Copy, Clone, Default, Serialize)]
 pub struct TunnelCtx {
     id: u128,
+}
+
+/// (Original comments)
+/// Statistics. No sensitive information
+#[derive(Serialize, Builder)]
+pub struct TunnelStats {
+    tunnel_ctx: TunnelCtx,
+    result: EstablishTunnelResult,
+    upstream_stats: Option<RelayStats>,
+    downstream_stats: Option<RelayStats>,
 }
 
 // https://doc.rust-lang.org/std/fmt/trait.Display.html#examples
@@ -124,4 +140,227 @@ where
             tunnel_config,
         }
     }
+
+    /// (Original comments)
+    /// Once the client connected we wait for a tunnel establishment handshake.
+    /// For instance, an `HTTP/1.1 CONNECT` for HTTP tunnels.
+    /// 
+    /// During handshake we obtained the target, and if we were able to connect to it,
+    /// a message indicating success is sent back to client (or an error response otherwise).
+    /// 
+    /// At that point we start relaying data in full-deplex mode.
+    /// 
+    /// This method consumes `self` and thus can be called only once.
+    /// 
+    /// (My comments)
+    /// full-deplex: 全二重
+    /// stackoverflow: Is HTTP 1.1 Full duplex?
+    /// https://stackoverflow.com/questions/23419469/is-http-1-1-full-duplex/27164848
+    /// A formal discussion of full duplex https://datatracker.ietf.org/doc/html/draft-zhu-http-fullduplex
+    pub async fn start(mut self) -> io::Result<TunnelStats> {
+        // Option Enum provides take().
+        // https://doc.rust-lang.org/std/option/enum.Option.html#method.take
+        let stream = self.client.take().expect("downstream can be taken once");
+
+        let tunnel_result = self.establish_tunnel(stream, self.tunnel_config.clone()).await;
+
+        if let Err(error) = tunnel_result {
+            return Ok(TunnelStats {
+                tunnel_ctx: self.tunnel_ctx,
+                result: error,
+                upstream_stats: None,
+                downstream_stats: None,
+            });
+        }
+
+        // upwrap 
+        let (client, target) = tunnel_result.unwrap();
+        relay_connections(
+            client,
+            target,
+            self.tunnel_ctx,
+            self.tunnel_config.client_connection.relay_policy,
+            self.tunnel_config.target_connection.relay_policy,
+        )
+        .await
+    }
+
+    async fn establish_tunnel(
+        &mut self,
+        stream: C,
+        configuration: TunnelConfig,
+    ) -> Result<(C, T::Stream), EstablishTunnelResult> {
+        debug!("Accepting HTTP tunnel requests: CTX={}", self.tunnel_ctx);
+
+        let (mut write, mut read) = self
+            .tunnel_request_codec
+            .take()
+            .expect("estalish_tunnel can be called only once")
+            .framed(stream)
+            // futures::StreanExt trait provides split() method.
+            // > This can be useful when you want to split ownership between tasks, or allow direct interaction between the two objects (e.g. via Sink::send_all).
+            // https://docs.rs/futures/0.2.1/futures/trait.StreamExt.html#method.split
+            .split();
+        
+        let (response, target) = self.process_tunnel_request(&configuration, &mut read).await;
+
+        let response_sent = match response {
+            EstablishTunnelResult::OkWithNugget => true,
+            _ => timeout(
+                configuration.client_connection.initiation_timeout,
+                // futures::SinkExt trait provides send() method
+                // > A future that completes after the given item has been fully processed into the sink, including flushing.
+                // https://docs.rs/futures/0.2.1/futures/trait.SinkExt.html#method.send
+                write.send(response.clone()),
+            )
+            .await
+            .is_ok(),
+        };
+
+        if response_sent {
+            match target {
+                None => Err(response),
+                Some(u) => {
+                    // lets take the original stream to either relay data, or to drop it on error
+                    let framed = write.reunite(read).expect("Uniting previously split parts");
+                    let original_stream = framed.into_inner();
+
+                    Ok((original_stream, u))
+                }
+            }
+        } else {
+            Err(EstablishTunnelResult::RequestTimeout)
+        }
+    }
+
+    async fn process_tunnel_request(
+        &mut self,
+        configuration: &TunnelConfig,
+        // tokio_util::codec::Framed
+        // > A unified Stream and Sink interface to an underlying I/O object,
+        // >  using the Encoder and Decoder traits to encode and decode frames.
+        // https://docs.rs/tokio-util/0.6.7/tokio_util/codec/struct.Framed.html
+        // futures::stream::SplitStream A Stream part of the split pair
+        // https://docs.rs/futures/0.2.1/futures/stream/struct.SplitStream.html
+        read: &mut SplitStream<Framed<C, H>>,
+    ) -> (
+        EstablishTunnelResult,
+        Option<<T as TargetConnector>::Stream>,
+    ) {
+        let connect_request = timeout(
+            configuration.client_connection.initiation_timeout,
+            read.next(),
+        )
+        .await;
+
+        let response;
+        let mut target = None;
+
+        if connect_request.is_err() {
+            error!("Client established TLS connection but failed an HTTP request within {:?}, CTX={}",
+                configuration.client_connection.initiation_timeout,
+                self.tunnel_ctx);
+            response = EstablishTunnelResult::RequestTimeout;
+        } else if let Some(event) = connect_request.unwrap() {
+            match event {
+                Ok(decoded_target) => {
+                    let has_nugget = decoded_target.has_nugget();
+                    response = match self
+                        .connect_to_target(
+                            decoded_target,
+                            configuration.target_connection.connect_timeout,
+                        )
+                        .await
+                    {
+                        Ok(t) => {
+                            target = Some(t);
+                            if has_nugget {
+                                EstablishTunnelResult::OkWithNugget
+                            } else {
+                                EstablishTunnelResult::Ok
+                            }
+                        }
+                        Err(e) => e,
+                    }
+                }
+                Err(e) => {
+                    response = e;
+                }
+            }
+        } else {
+            response = EstablishTunnelResult::BadRequest;
+        }
+
+        (response, target)
+    }
+
+    async fn connect_to_target(
+        &mut self,
+        target: T::Target,
+        connect_timeout: Duration,
+    ) -> Result<T::Stream, EstablishTunnelResult> {
+        debug!(
+            "Establishing HTTP tunnel target connection: {}, CTX={}",
+            target, self.tunnel_ctx,
+        );
+
+        let timed_connection_result = timeout(
+            connect_timeout, 
+            self.target_connector.connect(&target)
+        ).await;
+
+        if timed_connection_result.is_err() {
+            Err(EstablishTunnelResult::GatewayTimeout)
+        } else {
+            match timed_connection_result.unwrap() {
+                Ok(tcp_stream) => Ok(tcp_stream),
+                Err(e) => Err(EstablishTunnelResult::from(e)),
+            }
+        }
+    }
+}
+
+pub async fn relay_connections<
+    D: AsyncRead + AsyncWrite + Sized + Send + Unpin + 'static,
+    U: AsyncRead + AsyncWrite + Sized + Send + 'static,
+>(
+    client: D,
+    target: U,
+    ctx: TunnelCtx,
+    downstream_relay_policy: RelayPolicy,
+    upstream_relay_policy: RelayPolicy,
+) -> io::Result<TunnelStats> {
+    let (client_recv, client_send) = io::split(client);
+    let (target_recv, target_send) = io::split(target);
+
+    let downstream_relay: Relay = RelayBuilder::default()
+        .name("Downstream")
+        .tunnel_ctx(ctx)
+        .relay_policy(downstream_relay_policy)
+        .build()
+        .expect("RepayBuilder failed");
+    
+    let upstream_relay: Relay = RelayBuilder::default()
+        .name("Upstream")
+        .tunnel_ctx(ctx)
+        .relay_policy(upstream_relay_policy)
+        .build()
+        .expect("RelayBuilder failed");
+    
+    let upstream_task = 
+        tokio::spawn(async move { downstream_relay.relay_data(client_recv, target_send).await });
+    
+    let downstream_task = 
+        tokio::spawn(async move { upstream_relay.relay_data(target_recv, client_send).await });
+    
+    // TODO: What's ??;
+    let downstream_stats = downstream_task.await??;
+    let upstream_stats = upstream_task.await??;
+
+    Ok(TunnelStats {
+        tunnel_ctx: ctx,
+        result: EstablishTunnelResult::Ok,
+        upstream_stats: Some(upstream_stats),
+        downstream_stats: Some(downstream_stats),
+    })
 }
